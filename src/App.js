@@ -1,5 +1,6 @@
 import requestData from './api/request'
 import {useEffect, useState} from 'react'
+import usePersistenceState from './utilis/usePersistenceState';
 
 import GlobalStyle from './assets/style/GlobalStyle';
 import {ThemeProvider} from 'styled-components'
@@ -23,7 +24,9 @@ function App() {
 
   }, [])
 
-  const [theme, setTheme] = useState(dark)
+  let darkThemeSystem = window.matchMedia("(prefers-color-scheme: dark)").matches
+
+  const [theme, setTheme] = usePersistenceState('theme', darkThemeSystem ? dark : light)
   const toggleTheme = () => theme.title==='dark' ? setTheme(light) : setTheme(dark)
 
   return (
