@@ -1,4 +1,4 @@
-import requestData from './api/request'
+import {requestGameData} from './api/request'
 import {useEffect, useState} from 'react'
 import usePersistenceState from './utilis/usePersistenceState';
 
@@ -8,21 +8,22 @@ import ToggleThemeContext from './contexts/ToggleThemeContext';
 import dark from './assets/style/themes/dark'
 import light from './assets/style/themes/light'
 
-import Test from './components/test';
+import Routes from './utilis/Routes'
 
 function App() {
 
-  const [data, setData] = useState()
+  const [gameData, setGameData] = useState(null)
 
-  useEffect(() => {
+   useEffect(() => {
     async function loadData() {
-    const MakeRequest =  await requestData.MovieData()
-    if(MakeRequest){
-      console.log(MakeRequest)
+    const MakeRequest =  await requestGameData.getGameData()
+    if(MakeRequest[0].data[0].id){
+      setGameData(MakeRequest)
     }}
     loadData()
 
-  }, [])
+  }, []) 
+  
 
   let darkThemeSystem = window.matchMedia("(prefers-color-scheme: dark)").matches
 
@@ -35,7 +36,9 @@ function App() {
         <ThemeProvider theme={theme}>
 
           <GlobalStyle/>
-    <Test/>
+
+          <Routes gameData={gameData}/>
+
         </ThemeProvider>
       </ToggleThemeContext.Provider>
     </>

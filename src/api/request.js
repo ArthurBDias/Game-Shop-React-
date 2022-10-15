@@ -1,42 +1,91 @@
 import axios from "axios"
-const API_key = 'b36c2057f9e810360f8e3a13acc519d5'
-
-const api = axios.create({
-    baseURL: 'https://api.themoviedb.org/3',
-    timeout: 4000,
-})
 
 async function requestData(endpoint) {
-    const data = await api.get(endpoint)
-    return data.data
+    const options = {
+        method: 'GET',
+        url: `https://free-to-play-games-database.p.rapidapi.com/api${endpoint}`,
+        headers: {
+          'X-RapidAPI-Key': '5b852a4058msh374ec3f80e1ec10p1e0dffjsn4f2cae6308ac',
+          'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+        }
+      };
+      
+      const data = axios.request(options).then(function (response) {
+          return response.data;
+      }).catch(function (error) {
+          console.error(error);
+      });
+
+      return data
 }
 
-export default {
-     MovieData: async() => {
+
+export const requestGameData = {
+     getGameData: async() => {
         return [
 
             {
-                Title: 'most popular now',
-                data: await requestData(`/discover/movie?sort_by=popularity.desc&api_key=${API_key}`)
+                Title: 'Shoooter',
+                data: await requestData(`/games?category=shooter&sort-by=revelace`)
             },
+
+            {
+                Title: 'Moba',
+                data: await requestData(`/games?category=moba&sort-by=revelace`)
+            },
+
+            {
+                Title: 'Actions',
+                data: await requestData(`/games?category=action&sort-by=revelace`)
+            },
+
+            {
+                Title: 'Strategy',
+                data: await requestData(`/games?category=strategy&sort-by=revelace`)
+            },
+
+            {
+                Title: 'Card Games',
+                data: await requestData(`/games?category=card&sort-by=revelace`)
+            },
+
+            {
+                Title: 'Popular Now',
+                data: await requestData(`/games?sort-by=revelance`)
+            }
             
-            {
-                Title: 'Highest rated movies:',
-                data: await requestData(`/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&api_key=${API_key}`)
-            },
-
-            {
-                Title: 'best movies from 2021:',
-                data: await requestData(`/discover/movie?primary_release_year=2021&sort_by=vote_average.desc&api_key=${API_key}`)
-            },
-
-            {
-                Title: 'recently added',
-                data: await requestData(`/discover/movie?primary_release_date.gte=2021-09-15&primary_release_date.lte=2022-09-22&api_key=${API_key}`)
-            },
-    
         ]
     
  
     }
 }
+
+export async function getGameDetails(id){
+    const data = await requestData(`/game?id=$${id}`)
+    return data
+}
+
+
+
+/* const api = axios.create({
+    baseURL: 'https://free-to-play-games-database.p.rapidapi.com/api',
+    timeout: 4000,
+})
+
+const Time = new Promise((resolve) => setTimeout(resolve, 5000))
+
+async function requestData(endpoint) {
+    await Time
+    const data = await api.get(endpoint, {
+    'X-RapidAPI-Key': '5b852a4058msh374ec3f80e1ec10p1e0dffjsn4f2cae6308ac',
+    'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+  })
+    return data.data
+} */
+
+
+
+
+
+
+

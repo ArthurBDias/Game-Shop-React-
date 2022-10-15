@@ -1,8 +1,8 @@
 const color ={
     title: 'light',
-    backgorund: '#fff',
-    primary: '#lightred',
-    secundary: '#lightblue',
+    background: '#fff',
+    primary: '#D9D9D9',
+    secondary: '#6A6BA1',
     fontColor: '#000',
 }
 

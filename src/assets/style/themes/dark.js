@@ -1,8 +1,8 @@
 const color ={
     title: 'dark',
-    backgorund: '#111',
-    primary: '#222',
-    secundary: '#333',
+    background: '#222',
+    primary: '#333',
+    secondary: '#FF0106',
     fontColor: '#fff',
 }
 
