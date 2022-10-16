@@ -5,24 +5,13 @@ export const FeaturedGames = styled.section`
     height: calc(100vh - 50px);
     position: relative;
 
-    h2{
-        position: absolute;
-        top: 5%;
-        left: 40px;
-        padding: 6px 12px;
-        font-size: 22px;
-        background-color: ${props => props.theme.primary};
-        z-index: 10;
-        text-align: center;
-    }
-
     .swiper-button-prev, .swiper-button-next{
+        height: 0 !important;
+        width: 0 !important;
     color: white !important;
-    height: calc(100% + 50px) !important;
-    top: 0 !important;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 0 20px;
+    padding: 45px;
     transition: all .3s;
+    border-radius: 50%;
 
     }
 
@@ -76,13 +65,26 @@ export const FeaturedInfo = styled.div`
     z-index: 10;
     position: relative;
 
+    h2{
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 6px 12px;
+        font-size: 22px;
+        background-color: ${props => props.theme.background};
+        z-index: 10;
+        text-align: center;
+    }
+
     h3{
+        color: white;
         font-size: 2.2em;
         position: absolute;
         left: 50%;
         transform: translate(-50%) ;
-        top: 5%;
-        text-shadow: 3px 3px 6px ${props => props.theme.background};
+        top: calc(5% + 50px);
+        text-shadow: 2px 2px 5px black;
     }
 
     button{
@@ -90,21 +92,26 @@ export const FeaturedInfo = styled.div`
         left: 50%;
         transform: translate(-50%) ;
         bottom: 10%;
-        color: ${props => props.theme.fontColor};
         outline: none;
         border: none;
         cursor: pointer;
+        
+    }
+
+    button a{
+        color: ${props => props.theme.fontColor};
+        text-decoration: none;
         font-size: 1.4em;
         font-weight: bold;
         background-color: ${props => props.theme.secondary};
-        padding: 12px 28px;
+        padding: 14px 32px;
         border-radius: 8px;
-        box-shadow: 0 0 12px ${props => props.theme.secondary};
+        box-shadow: 0 0 16px ${props => props.theme.secondary};
         transition: all .35s;
     }
 
-    button:hover{
-        box-shadow: 0 0 45px ${props => props.theme.secondary};
+    button a:hover{
+        box-shadow: 0 0 60px ${props => props.theme.secondary};
     }
 `
 

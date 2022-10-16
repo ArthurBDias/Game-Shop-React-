@@ -35,8 +35,8 @@ export const requestGameData = {
             },
 
             {
-                Title: 'Actions',
-                data: await requestData(`/games?category=action&sort-by=revelace`)
+                Title: 'Fighting',
+                data: await requestData(`/games?category=fighting&sort-by=revelace`)
             },
 
             {

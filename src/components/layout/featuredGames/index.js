@@ -1,13 +1,14 @@
 import {useState, useEffect} from 'react'
 import { FeaturedGames, FeaturedImage, FeaturedInfo} from './style'
+
 import {Swiper, SwiperSlide} from 'swiper/react'
 import { Pagination, Navigation } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import './style.css'
 
-import Loading from '../loading'
+import { Link } from 'react-router-dom'
+
 
 import {getGameDetails} from '../../../api/request'
 
@@ -40,34 +41,28 @@ export default function Index({FeaturedGamesData}) {
   return (
     <FeaturedGames>
 
-      <h2>{FeaturedGamesData.Title}</h2>
-
-
-      {featuredData.length >=5 ? (
         <Swiper
         speed={500}
         modules={[Navigation, Pagination]}
         navigation
         pagination={{clickable: true}}
         >
-        {console.log(featuredData)}
          
           {featuredData.map((Game, index) => (
              <SwiperSlide key={index}>
               <FeaturedImage imageURL={Game.screenshots[1].image}>
                 <FeaturedInfo>
-                  <h3>{Game.title}</h3>
-                 
-                  <button>See More</button>
+
+                  <h2>{FeaturedGamesData.Title}</h2>
+                  <h3>{Game.title}</h3>   
+                  <button><Link to={`/exhibition/${Game.id}`}>See More</Link></button>
+
                 </FeaturedInfo>
               </FeaturedImage>
             </SwiperSlide>
           ))}
 
-      </Swiper>
-      ) : (
-        <Loading/>
-      )}   
+      </Swiper> 
      
     </FeaturedGames>
   )

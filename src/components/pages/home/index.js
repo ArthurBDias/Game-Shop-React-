@@ -1,11 +1,37 @@
 import React from 'react'
-import FeaturedGames from '../../layout/featuredGames'
 import { Home } from './style'
+
+import GamesRow from '../../layout/gamesRow'
+import FeaturedGames from '../../layout/featuredGames'
+
+import Loading from '../../layout/loading'
+
 
 export default function index({gameData}) {
   return (
-    <Home>
-      <FeaturedGames FeaturedGamesData={gameData[5]}/>
-    </Home>
+   <>
+    {gameData ? (
+      
+       <Home>
+        {console.log(gameData)}
+       <FeaturedGames FeaturedGamesData={gameData[5]}/>
+ 
+       <GamesRow gamesData={gameData[0]}/>
+ 
+       <GamesRow gamesData={gameData[1]}/>
+ 
+       <GamesRow gamesData={gameData[2]}/>
+ 
+       <GamesRow gamesData={gameData[3]}/>
+ 
+       <GamesRow gamesData={gameData[4]}/>
+ 
+ 
+     </Home>
+
+    ) : (
+      <Loading/>
+    )}
+   </>
   )
 }

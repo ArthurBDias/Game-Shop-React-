@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import ToggleThemeContext from '../../../contexts/ToggleThemeContext'
 import {Header, IconContainer, NavigateContainer, ProfileContainer} from './style'
 import { Link } from 'react-router-dom'
 
@@ -8,7 +9,11 @@ import {FaSearch, FaCartArrowDown} from 'react-icons/fa'
 import {CgProfile} from 'react-icons/cg'
 
 
-export default function index() {
+export default function Index() {
+
+  const {toggleTheme} = useContext(ToggleThemeContext)
+
+
   return (
     <Header>
       <IconContainer>
@@ -18,7 +23,7 @@ export default function index() {
       <NavigateContainer>
         <ul>
           <li>Categories</li>
-          <li>Top 2022</li>
+          <li onClick={() => {toggleTheme()}}>Top 2022</li>
           <li>Contact us</li>
           <li>About us</li>
         </ul>
