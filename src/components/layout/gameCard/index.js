@@ -8,7 +8,7 @@ export default function Index({id, thumb, title, platform}) {
   return (
     <GameCard>
         <Link to={`/exhibition/${id}`}>
-            <img src={thumb} alt=''/>
+            <img src={thumb} alt='Game Thumb'/>
             <h3>{title}</h3>
             {platform === "PC (Windows)" ? (<MdMonitor/>) : (<FaChrome className='small'/>)}
         </Link>

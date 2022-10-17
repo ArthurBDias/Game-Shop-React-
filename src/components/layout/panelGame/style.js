@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const PanelGame = styled.section`
     margin-top: 10vh;
+    position: relative;
 `
 
 export const Background = styled.div`
@@ -31,12 +32,12 @@ export const GameInfo = styled.div`
 
     p{
         margin-top: 15px;
-        max-width: 45%;
         font-size: 1.1em;
     }
 
     p.desc{
         font-size: 1em;
+        max-width: 30%;
         overflow: hidden;
         text-overflow: ellipsis; 
         display: -webkit-box;
@@ -47,5 +48,21 @@ export const GameInfo = styled.div`
     button{
         margin-top: 35px;
         margin-left: 15px;
+    }
+
+    img{
+        transform: scale(1);
+        border-radius: 20px;
+        position: absolute;
+        top: 30%;
+        right: 15%;
+        box-shadow: 0 0 16px white;
+        transition: all .25s;
+    }
+
+    img:hover{
+        transform: scale(1.10);
+        box-shadow: 0 0 40px white;
+        
     }
 `

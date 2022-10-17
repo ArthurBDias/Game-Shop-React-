@@ -4,6 +4,8 @@ import { getGameDetails } from '../../../api/request'
 import { PanelGame, Background, GameInfo } from './style'
 import Button from '../button'
 
+import {Link} from 'react-router-dom'
+
 import {MdMonitor} from 'react-icons/md'
 import {FaChrome} from 'react-icons/fa'
 
@@ -40,6 +42,10 @@ export default function Index({gameId}) {
                     <Button text='Play Now' url={gameData.game_url}/>
 
                     <Button text='Interest List' color={'#4A27E3'}/>
+
+                    <Link to={`/exhibition/${gameData.id}`}>
+                        <img src={gameData.thumbnail} alt='Game Thumb'/>
+                    </Link>
 
                 </GameInfo>
             </Background>
