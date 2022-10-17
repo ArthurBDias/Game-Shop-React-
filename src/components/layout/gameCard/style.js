@@ -36,4 +36,5 @@ export const GameCard = styled.div`
     svg.small{
         font-size: 1.2em;
     }
+
 `

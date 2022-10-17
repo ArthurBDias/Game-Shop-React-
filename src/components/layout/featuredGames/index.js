@@ -50,7 +50,8 @@ export default function Index({FeaturedGamesData}) {
          
           {featuredData.map((Game, index) => (
              <SwiperSlide key={index}>
-              <FeaturedImage imageURL={Game.screenshots[0].image}>
+
+              <FeaturedImage imageURL={Game.screenshots[1].image}>
                 <FeaturedInfo>
                   <h2>{FeaturedGamesData.Title}</h2>
                   <h3>{Game.title}</h3>   

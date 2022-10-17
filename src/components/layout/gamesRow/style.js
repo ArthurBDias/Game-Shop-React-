@@ -20,6 +20,14 @@ export const GamesRow = styled.section`
         border-radius: 50%;
         top: 45% !important;
 
+    .swiper-button-prev, .swiper-button-next{
+        height: 0 !important;
+        width: 0 !important;
+        color: white !important;
+        padding: 45px;
+        transition: all .3s;
+        border-radius: 50%;
+
     }
 
     .swiper-button-prev{
@@ -28,6 +36,11 @@ export const GamesRow = styled.section`
 
     .swiper-button-next{
         right: 10px;
+        left: 0;
+    }
+
+    .swiper-button-next{
+        right: 0;
     }
 
     .swiper-button-prev:hover, .swiper-button-next:hover{

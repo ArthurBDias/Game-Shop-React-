@@ -16,6 +16,7 @@ export default function Index({gamesData}) {
         }
     })
 
+    console.log(gameRowData, gameRowData.length)
   return (
     <GamesRow>
         <h2>{gamesData.Title}</h2>
