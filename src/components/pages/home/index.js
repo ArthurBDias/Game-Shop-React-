@@ -13,16 +13,14 @@ export default function index({gameData}) {
    <>
     {gameData ? (
        <Home>
-      {console.log(gameData[5].data[5].id)}
-         
-
+    
         <FeaturedGames FeaturedGamesData={gameData[5]}/>
   
         <GamesRow gamesData={gameData[0]}/>
   
         <GamesRow gamesData={gameData[1]}/>
 
-        <PanelGame gameId={gameData[5].data[5].id}/>
+        <PanelGame gameId={gameData[5].data[6].id}/>
   
         <GamesRow gamesData={gameData[2]}/>
   

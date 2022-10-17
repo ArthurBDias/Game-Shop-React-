@@ -92,26 +92,8 @@ export const FeaturedInfo = styled.div`
         left: 50%;
         transform: translate(-50%) ;
         bottom: 10%;
-        outline: none;
-        border: none;
-        cursor: pointer;
+      
         
-    }
-
-    button a{
-        color: ${props => props.theme.fontColor};
-        text-decoration: none;
-        font-size: 1.4em;
-        font-weight: bold;
-        background-color: ${props => props.theme.secondary};
-        padding: 14px 32px;
-        border-radius: 8px;
-        box-shadow: 0 0 16px ${props => props.theme.secondary};
-        transition: all .35s;
-    }
-
-    button a:hover{
-        box-shadow: 0 0 60px ${props => props.theme.secondary};
     }
 `
 

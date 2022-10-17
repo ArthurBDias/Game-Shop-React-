@@ -10,13 +10,13 @@ import GameCard from '../gameCard'
 
 export default function Index({gamesData}) {
 
-    const gameRowData = gamesData.data.filter((game, index)=> {
+    const gameRowData = gamesData.data.filter((game, index) => {
         if(index <= 21) {
             return game
         }
+        return null
     })
 
-    console.log(gameRowData, gameRowData.length)
   return (
     <GamesRow>
         <h2>{gamesData.Title}</h2>

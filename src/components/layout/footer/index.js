@@ -2,7 +2,7 @@ import React from 'react'
 import { Footer, FooterContent,  LinksContainer, LogoAndSocial, Credits} from './style'
 import { Link } from 'react-router-dom'
 
-import {FaGithub, FaLinkedin, FaInstagram, FaRegCopyright} from 'react-icons/fa'
+import {FaGithub, FaLinkedin, FaInstagram} from 'react-icons/fa'
 
 export default function index() {
   return (

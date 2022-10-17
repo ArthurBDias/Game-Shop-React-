@@ -1,7 +1,11 @@
 import {useState, useEffect} from 'react'
 import { getGameDetails } from '../../../api/request'
 
-import { PanelGame } from './style'
+import { PanelGame, Background, GameInfo } from './style'
+import Button from '../button'
+
+import {MdMonitor} from 'react-icons/md'
+import {FaChrome} from 'react-icons/fa'
 
 export default function Index({gameId}) {
 
@@ -14,16 +18,34 @@ export default function Index({gameId}) {
         }
 
         loadData()
-    }, [])
+    }, [gameId])
 
   return (
     <PanelGame>
         {gameData && (
-            <div className='background'>
+            <Background url={gameData.screenshots[0].image}>
                 {console.log(gameData)}
                 <h2>Most Accessed:</h2>
-            </div>
+                <GameInfo>
+                    <h3>{gameData.title}</h3>
+
+                    <p className='desc'>{gameData.description}</p>
+
+                    <p><b>Platform:</b> {gameData.platform} {gameData.platform === "Windows" ? (<MdMonitor/>): (<FaChrome/>)}</p>
+                    
+                    <p><b>Genre:</b> {gameData.genre}, Developer: {gameData.developer}</p>
+
+                    <p><b>Release Date:</b> {gameData.release_date}</p>
+
+                    <Button text='Play Now' url={gameData.game_url}/>
+
+                    <Button text='Interest List' color={'#4A27E3'}/>
+
+                </GameInfo>
+            </Background>
         )}
     </PanelGame>
   )
 }
+//interest list 
+

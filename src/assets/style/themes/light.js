@@ -2,7 +2,7 @@ const color ={
     title: 'light',
     background: '#e7e7e7',
     primary: '#D9D9D9', 
-    secondary: '#D9384D',
+    secondary: '#FF0106',
     fontColor: '#000',
 }
 

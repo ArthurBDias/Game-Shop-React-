@@ -7,7 +7,6 @@ import {FaChrome} from 'react-icons/fa'
 export default function Index({id, thumb, title, platform}) {
   return (
     <GameCard>
-      {console.log(platform)}
         <Link to={`/exhibition/${id}`}>
             <img src={thumb} alt=''/>
             <h3>{title}</h3>

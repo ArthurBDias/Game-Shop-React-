@@ -1,14 +1,12 @@
 import {useState, useEffect} from 'react'
 import { FeaturedGames, FeaturedImage, FeaturedInfo} from './style'
+import Button from '../button'
 
 import {Swiper, SwiperSlide} from 'swiper/react'
 import { Pagination, Navigation } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-
-import { Link } from 'react-router-dom'
-
 
 import {getGameDetails} from '../../../api/request'
 
@@ -55,7 +53,7 @@ export default function Index({FeaturedGamesData}) {
                 <FeaturedInfo>
                   <h2>{FeaturedGamesData.Title}</h2>
                   <h3>{Game.title}</h3>   
-                  <button><Link to={`/exhibition/${Game.id}`}>See More</Link></button>
+                  <Button  url={`/exhibition/${Game.id}`} text='See More' type='internal' />
 
                 </FeaturedInfo>
               </FeaturedImage>

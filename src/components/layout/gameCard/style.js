@@ -37,4 +37,9 @@ export const GameCard = styled.div`
         font-size: 1.2em;
     }
 
+    h3{
+        max-width: 80%;
+        text-align: center;
+    }
+
 `
