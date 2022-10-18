@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const GamesRow = styled.section`
 
-    margin-top: 15vh;
+    margin-top: 12vh;
     padding: 0 0 15px 25px;
     background-color: ${props => props.theme.primary};
 
@@ -19,6 +19,7 @@ export const GamesRow = styled.section`
         transition: all .3s;
         border-radius: 50%;
         top: 45% !important;
+    }
 
     .swiper-button-prev, .swiper-button-next{
         height: 0 !important;
@@ -36,11 +37,6 @@ export const GamesRow = styled.section`
 
     .swiper-button-next{
         right: 10px;
-        left: 0;
-    }
-
-    .swiper-button-next{
-        right: 0;
     }
 
     .swiper-button-prev:hover, .swiper-button-next:hover{

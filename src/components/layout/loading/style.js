@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 export const Backgorund = styled.div`
     width: 100%;
     height: 100vh;
-    background-color: ${props => props.theme.backgorund};
+    background-color: ${props => props.theme.background};
     display: flex;
     align-items: center;
     justify-content: center;

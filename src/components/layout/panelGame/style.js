@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PanelGame = styled.section`
-    margin-top: 10vh;
+    margin-top: 1vh;
     position: relative;
 `
 

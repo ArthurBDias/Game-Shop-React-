@@ -1,7 +1,7 @@
 const color ={
     title: 'dark',
-    background: '#222',
-    primary: '#333',
+    background: '#212121',
+    primary: '#333333',
     secondary: '#FF0106',
     fontColor: '#fff',
 }

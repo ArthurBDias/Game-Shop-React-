@@ -26,9 +26,11 @@ export default function Index({gameId}) {
     <PanelGame>
         {gameData && (
             <Background url={gameData.screenshots[0].image}>
-                {console.log(gameData)}
+
                 <h2>Most Accessed:</h2>
+                
                 <GameInfo>
+
                     <h3>{gameData.title}</h3>
 
                     <p className='desc'>{gameData.description}</p>

@@ -3,8 +3,11 @@ import { useParams } from 'react-router-dom'
 
 import { getGameDetails } from '../../../api/request'
 
-import { Exhibition } from './style'
+import { Exhibition, GameBillboard, BackImage, GameInformation, GameInfoCard, GameDesc} from './style'
 import Loading from '../../layout/loading'
+import Button from '../../layout/button'
+
+import {FaAngleLeft} from 'react-icons/fa'
 
 export default function Index() {
 
@@ -18,22 +21,61 @@ export default function Index() {
             setGameData(Data)
         }
 
-
+        window.scrollTo(0, 0)
         loadData()
     }, [id])
 
   return (
     <Exhibition>
+        
+        <button onClick={() => {window.history.back()}} className='return' ><FaAngleLeft/></button>
+
         {gameData ? (
-            <div>
-            <h1>{gameData.title}</h1>
-            <button onClick={() => {window.history.back()}}>Go back</button>
-            </div>
+            <GameBillboard>
+
+            <BackImage url={gameData.screenshots[gameData.screenshots.length - 1] ? gameData.screenshots[gameData.screenshots.length - 1].image : ''}/>
+
+                <GameInformation>
+                   <GameInfoCard>
+          
+                        <h2>{gameData.title}</h2>
+
+
+                        <img src={gameData.thumbnail} alt='Game Thumb'/>
+                    
+                        <p><b>Genre:</b> {gameData.genre}</p>
+
+                        <p><b>Developer:</b> {gameData.developer}</p>
+
+                        <p><b>Platform:</b> {gameData.platform}</p>
+
+                        <p><b>Publisher:</b> {gameData.publisher}</p>
+
+                        <p><b>Release Date:</b> {gameData.release_date}</p>
+
+                        <div className='buttons'>
+                            <Button text='Play Now' url={gameData.game_url}/>
+                            <Button text='Interest List' color={'#4A27E3'}/>
+                        </div>
+
+                   </GameInfoCard>
+
+                   <GameDesc>
+                        <h2>More About {gameData.title}</h2>
+
+                        <p>{gameData.description}</p>
+                   </GameDesc>
+                   
+                </GameInformation>
+
+
+                 
+
+            </GameBillboard>
 
         ) : (
 
             <Loading/>
-
         )}
     </Exhibition>
   )
