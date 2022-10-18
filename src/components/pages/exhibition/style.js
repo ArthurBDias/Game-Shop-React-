@@ -35,12 +35,13 @@ export const BackImage = styled.div`
 
 export const GameInformation = styled.div`
     display: flex;
-    @media (max-width: 1280px) {
+    @media (max-width: 1060px) {
         flex-direction: column;
     }
 `
 
 export const GameInfoCard = styled.div`
+    width: max-content;
     max-width: 30%;
     height: max-content;
     display: flex;
@@ -49,9 +50,11 @@ export const GameInfoCard = styled.div`
     align-items: center; 
     text-align: center;
     transform: translate(5%, -50%);
+    display: block;
     background-color: ${props => props.theme.primary};
     width: max-content;
     padding: 10px 30px;
+    border-radius: 25px;
 
     h2{
         font-size: 2.2em;
@@ -80,20 +83,36 @@ export const GameInfoCard = styled.div`
         margin-right: 15px;
     }
 
-    @media (max-width: 1400px) {
+    @media (max-width: 1600px) {
         h2{
-            font-size: 1.8em;
+            font-size: 1.7em;
         }
 
-        p{
-            font-size: 0.85em;
+    }
+
+    @media (max-width: 1400px) {
+        h2{
+            font-size: 1.45em;
         }
 
         button  a{
-        font-size: 1.3em;
-        padding: 10px 26px;
+        font-size: 1.15em;
+        padding: 8px 22px;
         border-radius: 18px;
         }
+    }
+
+    @media (max-width: 1060px) {
+        max-width: 90%;
+        margin-left: 50%;
+        transform: translate(-50%, -50%);
+
+        button  a{
+        font-size: 1.6em;
+        padding: 10px 28px;
+        border-radius: 22px;
+        }
+        
     }
    
 `
@@ -120,10 +139,26 @@ export const GameDesc = styled.div`
 
         p{
             font-size: 0.85em;
+            margin-left: 15px;
         }
     }
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1060px) {
         max-width: 100%;
+        text-align: center;
+        margin-top: -20%;
+    }
+`
+
+export const GameScreenshots = styled.section`
+
+    margin-top: -70px;
+
+    h2{
+        text-align: center;
+    }
+
+    @media (max-width: 1060px) {
+        margin-top: 40px; 
     }
 `

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import { getGameDetails } from '../../../api/request'
 
-import { Exhibition, GameBillboard, BackImage, GameInformation, GameInfoCard, GameDesc} from './style'
+import { Exhibition, GameBillboard, BackImage, GameInformation, GameInfoCard, GameDesc, GameScreenshots} from './style'
 import Loading from '../../layout/loading'
 import Button from '../../layout/button'
 
@@ -31,8 +31,10 @@ export default function Index() {
         <button onClick={() => {window.history.back()}} className='return' ><FaAngleLeft/></button>
 
         {gameData ? (
-            <GameBillboard>
+            <>
 
+            <GameBillboard>
+                {console.log(gameData)}
             <BackImage url={gameData.screenshots[gameData.screenshots.length - 1] ? gameData.screenshots[gameData.screenshots.length - 1].image : ''}/>
 
                 <GameInformation>
@@ -67,11 +69,14 @@ export default function Index() {
                    </GameDesc>
                    
                 </GameInformation>
-
-
                  
-
             </GameBillboard>
+
+            <GameScreenshots>
+                <h2>Screenshots: </h2>
+            </GameScreenshots>
+
+            </>
 
         ) : (
 
