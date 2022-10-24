@@ -8,6 +8,7 @@ import Main from '../components/layout/main'
 import Home from '../components/pages/home'
 import GameExhibition from '../components/pages/gameExhibition'
 import CategoryExhibition from '../components/pages/categoryExhibition'
+import TopYear from '../components/pages/topYear'
 import Search from '../components/pages/search'
 
 
@@ -38,8 +39,8 @@ export default function RoutesElements({gameData}) {
                         <Route path={'/'} element={<Home gameData={gameData}/>}/>
                         <Route path={'/exhibition/:id'} element={<GameExhibition/>}/>
                         <Route path={'/categories/:category'} element={<CategoryExhibition/>}/>
+                        <Route path={'/top'} element={<TopYear popularGames={gameData[5]}/>}/>
                         <Route path={'/search'} element={<Search/>}/>
-                        
 
                     </Routes>
                 </Main>

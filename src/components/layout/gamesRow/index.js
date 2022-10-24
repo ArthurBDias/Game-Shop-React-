@@ -48,10 +48,6 @@ export default function Index({gamesData, gameId}) {
         else if(window.innerWidth >= 460){
             setItemsPerView(2.5)
         }
-
-        else{
-            setItemsPerView(2)
-        }
         
     }
     

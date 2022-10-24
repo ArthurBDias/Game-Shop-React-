@@ -39,7 +39,12 @@ export const NavigateContainer = styled.nav`
         font-size: 1.15em;
     }
 
-    ul li:hover{
+    ul li a{
+        color: ${props => props.theme.fontColor};
+        text-decoration: none;
+    }
+
+    ul li:hover, ul li a:hover{
         color: ${props => props.theme.secondary};
     }
 

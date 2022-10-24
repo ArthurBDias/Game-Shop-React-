@@ -43,9 +43,9 @@ export default function Index() {
             </ul>
 
           </li>
-          <li onClick={() => {toggleTheme()}}>Top 2022</li>
+          <li><Link to={'/top'}>Top 2022</Link></li>
           <li>Contact us</li>
-          <li>About us</li>
+          <li onClick={() => {toggleTheme()}}>About us</li>
         </ul>
       </NavigateContainer>
 
