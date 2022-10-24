@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const GamesRow = styled.section`
 
     margin-top: 12vh;
-    padding: 0 0 15px 25px;
+    padding: 10px 0 15px 25px;
     background-color: ${props => props.theme.primary};
 
     h2{

@@ -8,14 +8,25 @@ import 'swiper/css/navigation'
 
 import GameCard from '../gameCard'
 
-export default function Index({gamesData}) {
+export default function Index({gamesData, gameId}) {
 
-    const gameRowData = gamesData.data.filter((game, index) => {
-        if(index <= 21) {
+    const gameRowGames = gamesData.data.filter((game, index) => {
+        if(index <= 21 && game.id !== gameId) {
             return game
         }
         return null
     })
+
+    function shuffleArray(arr) {
+        
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+    const gameRowData = shuffleArray(gameRowGames)
 
   return (
     <GamesRow>

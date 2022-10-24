@@ -51,7 +51,7 @@ export const requestGameData = {
 
             {
                 Title: 'Popular Now',
-                data: await requestData(`/games?sort-by=release-date`)
+                data: await requestData(`/games?sort-by=popularity`)
             }
             
         ]
@@ -62,6 +62,16 @@ export const requestGameData = {
 
 export async function getGameDetails(id){
     const data = await requestData(`/game?id=$${id}`)
+    return data
+}
+
+export async function getCategoryGames(category){
+    const data = await requestData(`/games?category=${category}&sort-by=revelace`)
+    return data
+}
+
+export async function getAlphabeticalGames(){
+    const data = await requestData(`/games?&sort-by=alphabetical`)
     return data
 }
 

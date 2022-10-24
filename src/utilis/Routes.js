@@ -6,7 +6,10 @@ import Footer from '../components/layout/footer'
 import Main from '../components/layout/main'
 
 import Home from '../components/pages/home'
-import Exhibition from '../components/pages/exhibition'
+import GameExhibition from '../components/pages/gameExhibition'
+import CategoryExhibition from '../components/pages/categoryExhibition'
+import Search from '../components/pages/search'
+
 
 import Loading from '../components/layout/loading'
 
@@ -31,8 +34,12 @@ export default function RoutesElements({gameData}) {
         
                 <Main>
                     <Routes>
+
                         <Route path={'/'} element={<Home gameData={gameData}/>}/>
-                        <Route path={'/exhibition/:id'} element={<Exhibition/>}/>
+                        <Route path={'/exhibition/:id'} element={<GameExhibition/>}/>
+                        <Route path={'/categories/:category'} element={<CategoryExhibition/>}/>
+                        <Route path={'/search'} element={<Search/>}/>
+                        
 
                     </Routes>
                 </Main>

@@ -11,6 +11,7 @@ export const Backgorund = styled.div`
     top: 0;
     left: 0;
     z-index: 10000;
+    user-select: none;
 `
 const animationLoad = keyframes`   
    33%{
