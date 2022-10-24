@@ -31,21 +31,27 @@ export default function Index({gameId}) {
 
                     <h3>{gameData.title}</h3>
 
-                    <p className='desc'>{gameData.description}</p>
-
-                    <p><b>Platform</b> <br/> {gameData.platform} {gameData.platform === "Windows" ? (<MdMonitor/>): (<FaChrome/>)}</p>
-                    
-                    <p><b>Genre</b> <br/> {gameData.genre}, Developer: {gameData.developer}</p>
-
-                    <p><b>Release Date</b> <br/> {gameData.release_date}</p>
-
-                    <Button text='Play Now' url={gameData.game_url}/>
-
-                    <Button text='Interest List' color={'#4A27E3'}/>
-
                     <Link to={`/exhibition/${gameData.id}`}>
                         <img src={gameData.thumbnail} alt='Game Thumb'/>
                     </Link>
+
+                    <p className='desc'>{gameData.description}</p>
+
+                    <p><span>Platform</span> {gameData.platform} {gameData.platform === "Windows" ? (<MdMonitor/>): (<FaChrome/>)}</p>
+                    
+                    <p><span>Genre</span> {gameData.genre}</p>
+
+                    <p><span>Developer</span> {gameData.developer}</p>
+
+                    <p><span>Release Date</span> {gameData.release_date}</p>
+
+                    <div className='buttons'>
+                        <Button text='Play Now' url={gameData.game_url}/>
+
+                        <Button text='Interest List' color={'#4A27E3'}/>
+                    </div>
+
+                   
 
                 </GameInfo>
             </Background>

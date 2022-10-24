@@ -44,4 +44,16 @@ export const GamesRow = styled.section`
             font-size: 2.2em;
         }
     }
+
+    @media (max-width: 768px) {
+        h2{
+            font-size: 1.8em;
+        }
+    }
+
+    @media (max-width: 460px) {
+        h2{
+            font-size: 1.6em;
+        }
+    }
 `

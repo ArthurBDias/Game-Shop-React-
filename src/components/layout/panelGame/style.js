@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PanelGame = styled.section`
     position: relative;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
-    width: 90%;
+    width: 90vw;
     margin: auto;
     margin-top: 12vh;
     border-radius: 22px;
@@ -11,7 +11,7 @@ export const PanelGame = styled.section`
 
 export const Background = styled.div`
     height: 70vh;
-    background: linear-gradient(90deg, rgba(20, 20, 20, .98) 32%, rgba(0, 0, 0, 0.60) 50%, rgba(0, 0, 0, 0.20)), 
+    background: linear-gradient(90deg, rgba(20, 20, 20, .95) 32%, rgba(0, 0, 0, 0.60) 50%, rgba(0, 0, 0, 0.20)), 
     url(${props => props.url});
     background-position: center center;
     background-size: cover;
@@ -22,10 +22,16 @@ export const Background = styled.div`
     align-items: center;
     border-radius: 22px;
 
-    h2{
-        text-align: center;
-        margin-top: 25px;
-        font-size: 2.2em;
+    @media (max-width: 1400px) {
+        background: linear-gradient(90deg, rgba(20, 20, 20, .94) 42%, rgba(0, 0, 0, 0.60) 50%, rgba(0, 0, 0, 0.20)), 
+        url(${props => props.url});
+    }
+
+    @media (max-width: 800px) {
+        background: linear-gradient(0deg, rgba(20, 20, 20, .9) 42%, rgba(0, 0, 0, 0.60) 50%, rgba(0, 0, 0, 0.20)), 
+        url(${props => props.url});
+        justify-content: center;
+        align-items: flex-end;
     }
 
 `
@@ -46,6 +52,11 @@ export const GameInfo = styled.div`
         font-size: 1.1em;
     }
 
+    p span{
+        display: block;
+        font-weight: bold;
+    }
+
     p.desc{
         font-size: 1em;
         width: 100%;
@@ -56,8 +67,15 @@ export const GameInfo = styled.div`
         -webkit-box-orient: vertical;
     }
 
-    button{
+    div.buttons{
         margin-top: 35px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button{
         margin-left: 15px;
     }
 
@@ -69,7 +87,7 @@ export const GameInfo = styled.div`
         right: 15%;
         box-shadow: 0 0 16px white;
         transition: all .25s;
-        max-width: 45%;
+        max-width: 40%;
     }
 
     img:hover{
@@ -77,4 +95,46 @@ export const GameInfo = styled.div`
         box-shadow: 0 0 40px white;
         
     }
+
+    @media (max-width: 1400px) {
+        max-width: 50%;
+        padding-left: 8px;
+
+        button{
+        margin-top: 20px;
+        margin-left: 10px;
+        }
+
+        img{
+            right: 5%;
+        }
+
+    }       
+
+        @media (max-width: 800px) {
+
+        min-width: 90%;
+        max-width: 100%;
+        margin-bottom: 25px;
+
+        button{
+        margin-top: 20px;
+        margin-left: 10px;
+        }
+
+        p.desc{
+            display: none;
+        }
+
+        p span{
+        display: inline-block;
+        }
+
+        img{
+        position: unset;
+        max-width: 80%;
+    }
+    }
+
+    
 `
