@@ -31,6 +31,7 @@ export const Search = styled.div`
         padding: 8px;
         background-color: ${props => props.theme.primary};
         color: ${props => props.theme.fontColor};
+        box-shadow: 2px 2.5px 6px rgba(0, 0, 0, 0.6);
     }
 
     div svg{

@@ -1,18 +1,26 @@
 import styled from "styled-components";
 
 export const PanelGame = styled.section`
-    margin-top: 12vh;
     position: relative;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
+    width: 90%;
+    margin: auto;
+    margin-top: 12vh;
+    border-radius: 22px;
 `
 
 export const Background = styled.div`
     height: 70vh;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.80) 30%, rgba(0, 0, 0, 0.60) 50%, rgba(0, 0, 0, 0.20)), 
+    background: linear-gradient(90deg, rgba(20, 20, 20, .98) 32%, rgba(0, 0, 0, 0.60) 50%, rgba(0, 0, 0, 0.20)), 
     url(${props => props.url});
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 22px;
 
     h2{
         text-align: center;
@@ -24,10 +32,13 @@ export const Background = styled.div`
 
 export const GameInfo = styled.div`
     padding-left: 20px;
+    max-width: 30%;
+    text-align: center;
 
     h3{
         font-size: 1.75em;
         margin-bottom: 25px;
+        text-decoration: underline;
     }
 
     p{
@@ -37,7 +48,7 @@ export const GameInfo = styled.div`
 
     p.desc{
         font-size: 1em;
-        max-width: 30%;
+        width: 100%;
         overflow: hidden;
         text-overflow: ellipsis; 
         display: -webkit-box;
@@ -58,6 +69,7 @@ export const GameInfo = styled.div`
         right: 15%;
         box-shadow: 0 0 16px white;
         transition: all .25s;
+        max-width: 45%;
     }
 
     img:hover{

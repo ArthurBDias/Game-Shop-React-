@@ -33,6 +33,7 @@ export const BackImage = styled.div`
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
 
 `
 
@@ -59,6 +60,8 @@ export const GameInfoCard = styled.div`
     padding: 10px 30px;
     border-radius: 25px;
     user-select: none;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+
 
 
     h2{

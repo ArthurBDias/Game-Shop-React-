@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const GameListContainer = styled.section`
     margin-top: 12vh;
+    max-width: 95%;
 
     h2{
         font-size: 1.8em;

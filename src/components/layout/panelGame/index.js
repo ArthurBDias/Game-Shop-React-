@@ -26,8 +26,6 @@ export default function Index({gameId}) {
     <PanelGame>
         {gameData && (
             <Background url={gameData.screenshots[0].image}>
-
-                <h2>Most Accessed:</h2>
                 
                 <GameInfo>
 
@@ -35,11 +33,11 @@ export default function Index({gameId}) {
 
                     <p className='desc'>{gameData.description}</p>
 
-                    <p><b>Platform:</b> {gameData.platform} {gameData.platform === "Windows" ? (<MdMonitor/>): (<FaChrome/>)}</p>
+                    <p><b>Platform</b> <br/> {gameData.platform} {gameData.platform === "Windows" ? (<MdMonitor/>): (<FaChrome/>)}</p>
                     
-                    <p><b>Genre:</b> {gameData.genre}, Developer: {gameData.developer}</p>
+                    <p><b>Genre</b> <br/> {gameData.genre}, Developer: {gameData.developer}</p>
 
-                    <p><b>Release Date:</b> {gameData.release_date}</p>
+                    <p><b>Release Date</b> <br/> {gameData.release_date}</p>
 
                     <Button text='Play Now' url={gameData.game_url}/>
 

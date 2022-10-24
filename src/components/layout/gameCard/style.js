@@ -2,10 +2,13 @@ import styled from "styled-components";
 
 export const GameCard = styled.div`
     margin-right: 15px;
+    margin-bottom: 5px;
     border-radius: 20px;
     transform: scale(0.95);
     transition: all .25s;
     position: relative;
+    background-color: ${props => props.theme.primary};
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.6);
 
     &:hover{
         transform: scale(1);
@@ -29,8 +32,8 @@ export const GameCard = styled.div`
     svg{
         font-size: 1.45em;
         position: absolute;
-        right: 0;
-        bottom: 0;
+        right: 5px;
+        bottom: 8px;
     }
 
     svg.small{
@@ -41,6 +44,24 @@ export const GameCard = styled.div`
         max-width: 80%;
         text-align: center;
         margin-top: 10px;
+    }
+
+    @media (max-width: 1200px) {
+        h3{
+            font-size: 1em;
+        }
+    }
+
+    @media (max-width: 768px) {
+        h3{
+            font-size: .9em;
+        }
+    }
+
+    @media (max-width: 460px) {
+        h3{
+            font-size: .8em;
+        }
     }
 
 `

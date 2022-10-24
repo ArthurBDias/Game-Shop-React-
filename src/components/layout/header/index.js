@@ -28,11 +28,11 @@ export default function Index() {
             <ul className='categories_menu'>
 
               <Link to={'/categories/shooter'}>Shooter</Link>
-              <Link to={'/categories/mmorpg'}>MMORPG</Link>
+              <Link to={'/categories/MMORPG'}>MMORPG</Link>
               <Link to={'/categories/card'}>Card Games</Link>
               <Link to={'/categories/fantasy'}>Fantasy</Link>
               <Link to={'/categories/strategy'}>Strategy</Link>
-              <Link to={'/categories/Anime'}>Anime</Link>
+              <Link to={'/categories/anime'}>Anime</Link>
               <Link to={'/categories/moba'}>MOBA</Link>
               <Link to={'/categories/racing'}>Racing</Link>
               <Link to={'/categories/sports'}>Sports</Link>
