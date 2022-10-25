@@ -23,6 +23,13 @@ export const GameBillboard = styled.section`
     position: relative;
     max-height: 100vh;
 
+    @media (max-width: 1060px) {
+        max-height: unset !important;
+        max-width: 90%;
+        margin: auto;
+        margin-bottom: 6vh;
+    }
+
 `
 
 export const BackImage = styled.div`
@@ -39,6 +46,7 @@ export const BackImage = styled.div`
 
 export const GameInformation = styled.div`
     display: flex;
+
     @media (max-width: 1060px) {
         flex-direction: column;
     }
@@ -171,9 +179,6 @@ export const GameDesc = styled.div`
 `
 
 export const GameMinimumRequirements = styled.section`
-
-    padding-left: 30px;
-
     h2{
         margin-bottom: 1.3em;
         text-align: center;
@@ -220,7 +225,27 @@ export const GameMinimumRequirements = styled.section`
         margin-bottom: 12vh;
     }
 
- 
+    
+    @media (max-width: 900px) {
+        max-width: 90%;
+        margin: auto;
+        h2{
+            font-size: 1.3em;
+        }
+
+        div.colunm h3{
+            font-size: 1.15em;
+        }
+
+        div.colunm p{
+            font-size: .9em;
+    }
+    }
+
+    @media (max-width: 560px) {
+        max-width: 100%;
+        transform: scale(.9);
+    }
 
 `
 

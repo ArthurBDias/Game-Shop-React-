@@ -94,7 +94,7 @@ export default function Index() {
             </GameBillboard>
 
             <GameMinimumRequirements>
-                <h2>Minimum System Requirements(Windows)</h2>
+                <h2>Minimum System Requirements (Windows)</h2>
 
                 <div className='flex_container'>
                     {gameData.platform === 'Windows' ? (
