@@ -43,7 +43,9 @@ export default function Index({gameList, title}) {
 
                 <GameList>
                     {gameListFiltered.map((game, index) => (
-                        <GameCard key={index} id={game.id} title={game.title} thumb={game.thumbnail} platform={game.platform}/>
+                        <span key={index} className='game_container'>
+                            <GameCard id={game.id} title={game.title} thumb={game.thumbnail} platform={game.platform}/>
+                        </span>
                     ))}
                 </GameList>
 

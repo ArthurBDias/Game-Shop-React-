@@ -17,4 +17,8 @@ export const GameList = styled.section`
     justify-content: center;
     align-items: center;
 
+    span.game_container{
+        padding: 5px 2px;
+    }
+
 `

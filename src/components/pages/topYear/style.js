@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const TopYearContainer = styled.div`
-    padding: 8vh 0 0 30px;
-    max-width: 70%;
+    padding: 8vh 0 0 0;
+    width: 70%;
     margin: auto;
 
 
-    div.title_container h1{
+    h1{
         margin-bottom: 20px;
     }
 
@@ -17,4 +17,40 @@ export const TopYearContainer = styled.div`
         width: calc(100% - 30px);
         margin-bottom: 40px;
     }
+
+    @media (max-width: 1600px) {
+        width: 80%;
+    }
+
+    @media (max-width: 1300px) {
+        width: 85%;
+
+        h1{
+            font-size: 1.6em;
+        }
+    }
+
+    @media (max-width: 1050px) {
+        width: 96%;
+    }
+
+    @media (max-width: 800px) {
+        h1{
+            font-size: 1.4em;
+        }
+
+        P{
+            font-size: .9em;
+        }
+        
+    }
+
+    @media (max-width: 460px) {
+
+        P{
+            font-size: .75em;
+        }
+
+}
+
 `

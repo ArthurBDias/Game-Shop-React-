@@ -31,13 +31,12 @@ export default function Index() {
             const GameData = await getGameDetails(id)
             setGameData(GameData)
 
-            let CategoryData = await getCategoryGames(GameData.genre.toLowerCase().replace(' game', ''))
-            if(CategoryData.length >= 2){
-                console.log('verd')
+            let CategoryData = await getCategoryGames(GameData.genre.toLowerCase().replace(' game', '').replace(' RPG', '').replace(' ', '-'))
+
+            if(CategoryData){
                 setCategoryGames({Title: `Games Like ${GameData.title}`, data: CategoryData})
 
             }else{
-                console.log('fals')   
                 CategoryData = await getCategoryGames('action')
                 setCategoryGames({Title: `Games Like ${GameData.title}`, data: CategoryData})
 
@@ -55,7 +54,6 @@ export default function Index() {
 
         {gameData ? (
             <>
-            {console.log(gameData)}
             <GameBillboard>
 
             <BackImage url={gameData.screenshots[gameData.screenshots.length - 1] ? gameData.screenshots[gameData.screenshots.length - 1].image : ResrveBackground}/>
