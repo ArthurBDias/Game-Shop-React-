@@ -43,7 +43,7 @@ export const GameCard = styled.div`
     h3{
         max-width: 80%;
         text-align: center;
-        margin-top: 10px;
+        margin: 10px 0 4px 0;
     }
 
     @media (max-width: 1200px) {

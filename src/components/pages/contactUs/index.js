@@ -3,6 +3,10 @@ import { ContactContainer, ContactForm, ContactNotes } from './style'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 
+import {FaPhoneAlt} from 'react-icons/fa'
+import {MdEmail} from 'react-icons/md'
+import {RiMapPin2Fill} from 'react-icons/ri'
+
 export default function index() {
 
     function handleSubmit() {
@@ -28,7 +32,7 @@ export default function index() {
     <ContactContainer>
         <div className='flex_container'>
 
-            <h1>Teste</h1>
+            <h1>Contact Us</h1>
 
             <ContactForm>
                 <Formik
@@ -44,17 +48,17 @@ export default function index() {
                     {({isValid}) => (
 
                     <Form>
-                        <span htmlFor='name'>a</span>
+                        <span htmlFor='name'>Your Name</span>
                         <Field type='text' id='name' name='name'/>
-                        <div><ErrorMessage name='name'/></div>
+                        <div className='error_message'><ErrorMessage name='name'/></div>
 
-                        <span htmlFor='email'>a</span>
+                        <span htmlFor='email'>Your Email</span>
                         <Field type='text' id='email' name='email'/>
-                        <div><ErrorMessage name='email'/></div>
+                        <div className='error_message'><ErrorMessage name='email'/></div>
 
-                        <span htmlFor='message'>a</span>
+                        <span htmlFor='message'>Your Message</span>
                         <Field type='text' id='message' name='message'/>
-                        <div><ErrorMessage name='message'/></div>
+                        <div className='error_message'><ErrorMessage name='message'/></div>
 
                         <button type='submit' disabled={!isValid}>Enter</button>
                     </Form>
@@ -64,17 +68,20 @@ export default function index() {
             </ContactForm>
 
             <ContactNotes>
+
+            <h3>Shop Info</h3>
+
                 <ul>
-                    <li>123 Suspendis mattis, Sollicitudin District, Accums Fringilla</li>
+                    <li><RiMapPin2Fill/> 135 willow st yonkers ny 10701-4360 USA</li>
 
-                    <li>Email: contact@freetofun.com</li>
+                    <li><MdEmail/> Email: contact@freetofun.com</li>
 
-                    <li>Phone: 0123456789</li>
+                    <li><FaPhoneAlt/> Phone: 0123456789</li>
                 </ul>
 
                 <h3>Note</h3>
 
-                <p>Please note we can't promise to reply to all emails we receive, but we definitely read it all.</p>
+                <p>Please note that we cannot promise to respond to every email we receive, but we definitely read everything, even if it takes some time.</p>
 
             </ContactNotes>
         </div>
