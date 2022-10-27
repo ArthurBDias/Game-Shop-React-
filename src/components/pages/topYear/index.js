@@ -3,8 +3,6 @@ import { TopYearContainer } from './style'
 import GameLine from '../../layout/gameCardLine/'
 
 export default function Index({popularGames}) {
-    
-    window.scrollTo(0, 0)
 
     const [currentPages, setCurrentPages] = useState(1)
 
@@ -19,6 +17,8 @@ export default function Index({popularGames}) {
                 }
             })
         })
+
+        window.scrollTo(0, 0)
 
         Observer.observe(document.querySelector('div#sentinel'))
 
