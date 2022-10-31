@@ -14,10 +14,14 @@ export const LoginForm = styled.section`
     border-radius: 20px;
     background-color: ${props => props.theme.primary};
     box-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.6);
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `
 
 export const FormImage = styled.aside`
-    padding: 200px 140px;
+    padding: 220px 180px;
     background-color: ${props => props.theme.primary};
     border-radius: 20px 0 0 20px;
     background-image: url(${props => props.url});
@@ -25,11 +29,25 @@ export const FormImage = styled.aside`
     background-size: cover;
     background-repeat: no-repeat;
 
+    @media (max-width: 1050px) {
+        padding: 180px 130px;
+        padding: 220px 180px;
+
+    }
+
+    @media (max-width: 768px) {
+        min-width: 100%;
+        padding: 80px 0;
+        background-position: center bottom;
+        
+
+    }
+
 `
 
 export const FormContainer = styled.div`
-   padding: 25px;
-   min-width: 340px;
+   padding: 40px;
+   min-width: 400px;
 
    h2{
     text-align: center;
@@ -65,9 +83,22 @@ export const FormContainer = styled.div`
         padding: 12px;
         cursor: pointer;
         transition: all .25s;
+        box-shadow: .5px .5px 5px rgba(0, 0, 0, 0.6);
     }
 
     button:hover{
         background-color: darkgray;
     }
+
+    @media (max-width: 1050px) {
+        padding: 25px;
+        min-width: 320px;
+    }
+
+    @media (max-width: 768px) {
+        min-width: 0;
+        width: 400px;
+        max-width: 80vw;
+    }
+
 `

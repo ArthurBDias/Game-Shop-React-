@@ -13,6 +13,11 @@ export const Header = styled.header`
     height: 50px;
     z-index: 100;
     user-select: none;
+
+    @media (max-width: 1125px) {
+        justify-content: space-between;
+        padding: 10px 35px;
+    }
 `
 
 export const IconContainer = styled.div`
@@ -128,4 +133,38 @@ export const ProfileContainer = styled.div`
     svg:hover{
         background-color: ${props => props.theme.secondary};
     }
+`
+
+export const MobileMenu = styled.div`
+
+    svg{
+        font-size: 1.6em;
+        cursor: pointer;
+    }
+
+    div.menu_mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: absolute;
+        right: -35vw;
+        top: 38px;
+        min-width: 30vw;
+        height: 100vh;
+        background-color: ${props => props.theme.primary};
+        transition: all .5s;
+        padding: 30px;
+    }
+
+    div.menu_mobile.active{
+        right: 0;
+        top: 38px;
+    }
+
+    div.menu_mobile > nav > ul{
+        display: flex;
+        flex-direction: column;
+    }
+
 `
