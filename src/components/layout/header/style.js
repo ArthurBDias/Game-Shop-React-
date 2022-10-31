@@ -30,6 +30,10 @@ export const IconContainer = styled.div`
    h2 a:hover{
         color: ${props => props.theme.secondary};
    }
+
+   @media (max-width: 640px) {
+        font-size: .8em;
+   }
 `
 
 export const NavigateContainer = styled.nav`
@@ -148,9 +152,9 @@ export const MobileMenu = styled.div`
         justify-content: flex-start;
         align-items: center;
         position: absolute;
-        right: -35vw;
+        right: -45vw;
         top: 38px;
-        min-width: 30vw;
+        min-width: 40vw;
         height: 100vh;
         background-color: ${props => props.theme.primary};
         transition: all .5s;
@@ -162,9 +166,50 @@ export const MobileMenu = styled.div`
         top: 38px;
     }
 
+    div.menu_mobile > nav{
+        width: 100%;
+    }
+
     div.menu_mobile > nav > ul{
         display: flex;
         flex-direction: column;
+        min-width: 100%;
+    }
+
+    div.menu_mobile > nav > ul > li{
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size: 1.4em;
+        padding: 10px;
+    }
+
+    div.menu_mobile > nav > ul > li > span, div.menu_mobile > nav > ul > li a{
+        transition: all .25s;
+        display: block;
+        max-width: 100%;
+    }
+
+    div.menu_mobile div{
+        margin-top: 30px;
+        font-size: 2em;
+    }
+    
+    @media (max-width: 768px) {
+        div.menu_mobile{
+        right: -65vw;
+        min-width: 60vw;
+        padding: 25px;
+    }
+    }
+
+    @media (max-width: 460px) {
+        div.menu_mobile{
+        right: -85vw;
+        min-width: 80vw;
+        padding: 20px;
+    }
     }
 
 `
