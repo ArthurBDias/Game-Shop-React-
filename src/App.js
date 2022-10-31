@@ -8,6 +8,9 @@ import ToggleThemeContext from './contexts/ToggleThemeContext';
 import dark from './assets/style/themes/dark'
 import light from './assets/style/themes/light'
 
+import { AuthProvider } from './contexts/AuthUserContext';
+
+import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './utilis/Routes'
 
 function App() {
@@ -33,13 +36,18 @@ function App() {
   return (
     <>
       <ToggleThemeContext.Provider value={{toggleTheme, theme}}>
-        <ThemeProvider theme={theme}>
+          <ThemeProvider theme={theme}>
+            <Router>
+              
+              <GlobalStyle/>
 
-          <GlobalStyle/>
+              <AuthProvider>
+                <Routes gameData={gameData}/>
+              </AuthProvider>
 
-          <Routes gameData={gameData}/>
-
-        </ThemeProvider>
+            </Router>
+                  
+          </ThemeProvider>
       </ToggleThemeContext.Provider>
     </>
   );

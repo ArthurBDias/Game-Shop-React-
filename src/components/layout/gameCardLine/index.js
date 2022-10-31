@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { GameLineContainer, GameLine } from './style'
-import Button from '../button'
 
 export default function Index({gameData, number}) {
   return (

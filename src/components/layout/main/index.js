@@ -1,7 +1,7 @@
-import React from 'react'
 import { Main } from './style'
 
-export default function index({children}) {
+export default function Index({children}) {
+
   return (
     <Main>{children}</Main>
   )

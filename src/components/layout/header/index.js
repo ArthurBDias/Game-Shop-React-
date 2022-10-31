@@ -52,7 +52,7 @@ export default function Index() {
       <ProfileContainer>
         <Link to={'/search'}><FaSearch/></Link>
 
-        <Link to={''}><CgProfile className='uper-size'/></Link>
+        <Link to={'/profile'}><CgProfile className='uper-size'/></Link>
 
         <span><FaCartArrowDown/></span>
       </ProfileContainer>
