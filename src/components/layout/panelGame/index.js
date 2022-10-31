@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import { getGameDetails } from '../../../api/request'
 
 import { PanelGame, Background, GameInfo } from './style'
@@ -9,7 +9,21 @@ import {Link} from 'react-router-dom'
 import {MdMonitor} from 'react-icons/md'
 import {FaChrome} from 'react-icons/fa'
 
+import { AuthContext } from '../../../contexts/AuthUserContext'
+
 export default function Index({gameId}) {
+
+  const {cart, AddCart} = useContext(AuthContext)
+
+
+    function ItemCart() {
+        console.log('foi')
+        AddCart({
+            title:'teste',
+            id: '511'
+          })
+          console.log(cart)
+    }
 
     const [gameData, setGameData] = useState(null)
 
@@ -23,7 +37,7 @@ export default function Index({gameId}) {
     }, [gameId])
 
   return (
-    <PanelGame>
+    <PanelGame onClick={ItemCart}>
         {gameData && (
             <Background url={gameData.screenshots[0].image}>
                 
@@ -48,7 +62,7 @@ export default function Index({gameId}) {
                     <div className='buttons'>
                         <Button text='Play Now' url={gameData.game_url}/>
 
-                        <Button text='Interest List' color={'#4A27E3'}/>
+                        <Button text='Interest List' color={'#4A27E3'} type='internal'/>
                     </div>
 
                    

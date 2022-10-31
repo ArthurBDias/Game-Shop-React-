@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import { getCategoryGames } from '../../../api/request'
 
-import { CategoryExhibition } from './style'
+import { CategoryExhibition, CategoryTitle } from './style'
 import PanelGame from '../../layout/panelGame'
 import GameList from '../../layout/gameList'
 import Loading from '../../layout/loading'
@@ -41,16 +41,19 @@ export default function Index() {
     <CategoryExhibition>
         {categoryData ? (
             <>
-                <h1>Top Free {categoryTitle} Games for PC and Browser!</h1>
-                <p>{categoryData.length}  free-to-play {categoryTitle} games found in our games list!</p>
+                <CategoryTitle>
+                    <h1>Top Free {categoryTitle} Games for PC and Browser!</h1>
+                    <p>{categoryData.length}  free-to-play {categoryTitle} games found in our games list!</p>
 
-                <div className='line'></div>
+                    <div className='line'></div>
+                </CategoryTitle>
+
 
                 {randomGameID && (
-                    <>
+                    <div className='panel'>
                         <h2>Recommended</h2>
                         <PanelGame gameId={randomGameID}/>
-                    </>
+                    </div>
                 )}
 
                 <GameList gameList={categoryData} title=''/>

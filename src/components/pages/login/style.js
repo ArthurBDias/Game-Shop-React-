@@ -86,7 +86,7 @@ export const FormContainer = styled.div`
         box-shadow: .5px .5px 5px rgba(0, 0, 0, 0.6);
     }
 
-    button:hover{
+    button.valid:hover{
         background-color: darkgray;
     }
 

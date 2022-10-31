@@ -45,7 +45,7 @@ export default function Index() {
 
           validationSchema={schema}
           >
-            {({}) =>(
+            {({isValid}) =>(
               <Form>
 
                 <span htmlFor='name'>Username:</span>
@@ -56,7 +56,7 @@ export default function Index() {
                 <Field type='email' id='email' name='email'/>
                 <div className='error_message'><ErrorMessage name='email'/></div>
 
-                <button type='submit'>Create Account</button>
+                <button disabled={!isValid} className={isValid  ? 'valid' : ''} type='submit'>Create Account</button>
 
               </Form>
             )}

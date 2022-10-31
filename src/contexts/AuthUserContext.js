@@ -6,7 +6,8 @@ export const AuthContext = createContext()
 
 export const AuthProvider = ({children}) => {
 
-    const[user, setUser] = usePersistenceState('user', '')
+    const[user, setUser] = useState()
+    const [cart, setCart] = useState([])
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
 
@@ -14,7 +15,6 @@ export const AuthProvider = ({children}) => {
         const userPersistence = localStorage.getItem('user')
 
         if(userPersistence){
-            console.log(usePersistenceState)
             setUser(userPersistence)
         }
 
@@ -28,12 +28,40 @@ export const AuthProvider = ({children}) => {
                 email
             }
 
+
             setUser(JSON.stringify(LoggedUser))
+            localStorage.setItem('user', JSON.stringify(LoggedUser))
             navigate('/')
             return user
         }
 
     }
+
+    const AddCart = (item) => {
+        if (item && !!user) {
+
+            const newCart = [...JSON.parse(user), item]
+            console.log(newCart)
+            setCart(JSON.stringify(newCart))
+            localStorage.setItem('cart', JSON.stringify(newCart))
+        }
+
+    }
+
+    const RemoveItemCart = (itemId) => {
+        if (itemId && !!user) {
+
+            setCart([])
+            localStorage.setItem('cart', JSON.stringify([]))
+        }
+
+    }
+
+    const ClearCart = () => {
+            setCart([])
+            localStorage.setItem('cart', JSON.stringify([]))
+    }
+    
 
     const Logout = () => {
         setUser(null)
@@ -42,7 +70,7 @@ export const AuthProvider = ({children}) => {
     }
 
     return(
-        <AuthContext.Provider value={{isLogged: user ? user.includes('name') : false, user, Login, Logout, loading}}>
+        <AuthContext.Provider value={{isLogged: !!user, user, Login, Logout, loading, cart, AddCart, RemoveItemCart, ClearCart}}>
             {children}
         </AuthContext.Provider>
     )

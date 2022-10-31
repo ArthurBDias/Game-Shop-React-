@@ -1,7 +1,33 @@
 import styled from "styled-components";
 
 export const CategoryExhibition = styled.div`
-    padding: 8vh 0 0 30px;
+    padding-top: 8vh;
+
+    h2{
+        text-align: center;
+        transform: translateY(8vh);
+        font-size: 1.8em;
+    }
+
+    div.panel{
+        margin-top: -6vh;
+    }
+
+    @media (max-width: 990px) {
+        h2{
+            font-size: 1.6em;
+        }
+    }
+
+    @media (max-width: 768px) {
+        h2{
+            font-size: 1.4em;
+        }
+    }
+`
+
+export const CategoryTitle = styled.div`
+    padding-left: 30px;
 
     div.line{
         height: 3px;
@@ -11,8 +37,15 @@ export const CategoryExhibition = styled.div`
         margin-bottom: 40px;
     }
 
-    h2{
-        text-align: center;
-        transform: translateY(6vh);
+    @media (max-width: 990px) {
+        h1{
+            font-size: 1.7em;
+        }
+    }
+
+    @media (max-width: 768px) {
+        h1{
+            font-size: 1.5em;
+        }
     }
 `

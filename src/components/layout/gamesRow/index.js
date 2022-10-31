@@ -28,7 +28,7 @@ export default function Index({gamesData, gameId}) {
 
     const gameRowData = shuffleArray(gameRowGames)
 
-    const [itemsPerView, setItemsPerView] = useState(2.5)
+    const [itemsPerView, setItemsPerView] = useState(2)
 
     const setView = () => {
         if(window.innerWidth >= 1920){
@@ -46,7 +46,7 @@ export default function Index({gamesData, gameId}) {
         }
 
         else if(window.innerWidth >= 460){
-            setItemsPerView(2.5)
+            setItemsPerView(2)
         }
         
     }

@@ -6,7 +6,7 @@ export default function index({text, color, url, type}) {
     if (type === 'internal') {
         return (
             <Button color={color}>
-                <Link to={url ? url : ''}>{text}</Link>
+                <Link to={url ? url : '#'}>{text}</Link>
             </Button>
         )
     }

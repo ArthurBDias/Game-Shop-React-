@@ -60,7 +60,7 @@ export default function index() {
                         <Field type='text' id='message' name='message'/>
                         <div className='error_message'><ErrorMessage name='message'/></div>
 
-                        <button type='submit' disabled={!isValid}>Submit</button>
+                        <button type='submit' disabled={!isValid} className={isValid ? 'valid' : ''}>Submit</button>
                     </Form>
 
                     )}

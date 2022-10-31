@@ -74,7 +74,7 @@ export const ContactForm = styled.div`
         transition: all .25s;
     }
 
-    form button:hover{
+    form button.valid:hover{
         background-color: darkgray;
     }
 
