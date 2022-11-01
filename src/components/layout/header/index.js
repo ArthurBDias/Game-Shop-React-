@@ -1,6 +1,7 @@
 import React, {useContext, useState, useEffect} from 'react'
 import ToggleThemeContext from '../../../contexts/ToggleThemeContext'
-import {Header, IconContainer, NavigateContainer, ProfileContainer, MobileMenu} from './style'
+import { AuthContext } from '../../../contexts/AuthUserContext'
+import {Header, IconContainer, NavigateContainer, ProfileContainer, MobileMenu, Cart} from './style'
 import { Link } from 'react-router-dom'
 
 import './styles.css'
@@ -14,6 +15,10 @@ export default function Index() {
 
   const {toggleTheme} = useContext(ToggleThemeContext)
 
+  const {isLogged, cart, RemoveItemCart, ClearCart} = useContext(AuthContext)
+
+  const [cartItems, setCartItems] = useState()
+
   const [widthState, setWidthState] = useState(2.5)
 
     const setView = () => {
@@ -26,7 +31,9 @@ export default function Index() {
 
     window.addEventListener('resize', setView)
 
-
+    useEffect(() => {
+      setCartItems(JSON.parse(cart))
+    }, [cart])
 
   return (
     <Header>
@@ -70,8 +77,33 @@ export default function Index() {
 
         <Link to={'/profile'}><CgProfile className='uper-size'/></Link>
 
-        <span><FaCartArrowDown/></span>
+        <span className='cart'>
+          <FaCartArrowDown onClick={() => {document.querySelector('.cart_container').classList.toggle('active')}}/>
+
+          <Cart className='cart_container'>
+            {isLogged ? (
+              <div>
+                {cartItems.map((item) => (
+                    <div className='cart_item'>
+                      <Link to={`/exhibition/${item.id}`}>
+                      <img src={item.thumb} alt='thumb'/>
+                      <h3>{item.title}</h3>
+                      </Link>
+
+                      <button onClick={() => RemoveItemCart(item.id)}>Remove</button>
+                    </div>
+                ))}
+                <button onClick={() => ClearCart()}>Clear Cart</button>
+              </div>
+            ) : (
+              <p>Usuario não logado</p>
+            )}
+          </Cart>
+
+        </span>
+
       </ProfileContainer>
+
         </>
 
       ) : (
@@ -115,7 +147,7 @@ export default function Index() {
 
               <Link to={'/profile'}><CgProfile className='uper-size'/></Link>
 
-              <span><FaCartArrowDown/></span>
+              <span onClick={() => {document.querySelector('.cart_container').classList.toggle('active')}}><FaCartArrowDown/></span>
           </ProfileContainer>
 
       </div>

@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import { useParams } from 'react-router-dom'
 
 import { getGameDetails, getCategoryGames } from '../../../api/request'
@@ -7,6 +7,8 @@ import { Exhibition, GameBillboard, BackImage, GameInformation, GameInfoCard, Ga
 import Loading from '../../layout/loading'
 import Button from '../../layout/button'
 import GamesRow from '../../layout/gamesRow'
+
+import { AuthContext } from '../../../contexts/AuthUserContext'
 
 import {FaAngleLeft} from 'react-icons/fa'
 
@@ -25,6 +27,20 @@ export default function Index() {
     const [gameData, setGameData] = useState()
     const [categoryGames, setCategoryGames] = useState([])
 
+    const {isLogged, AddCart} = useContext(AuthContext)
+
+    function AddItemCart() {
+        if(isLogged){
+            AddCart({
+                title: gameData.title,
+                thumb: gameData.thumbnail,
+                id: gameData.id
+            })
+        }else{
+            alert('faça login')
+        }
+        
+    }
 
     useEffect(() => {
         async function loadData() {
@@ -78,7 +94,7 @@ export default function Index() {
 
                         <div className='buttons'>
                             <Button text='Play Now' url={gameData.game_url}/>
-                            <Button text='Interest List' color={'#4A27E3'}/>
+                            <span onClick={AddItemCart}><Button text='Interest List' color={'#4A27E3'} type='internal' /></span>
                         </div>
 
                    </GameInfoCard>

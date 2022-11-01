@@ -1,4 +1,4 @@
-import {useContext} from 'react'
+import {useContext, useEffect} from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as yup from 'yup'
 
@@ -12,6 +12,10 @@ export default function Index() {
 
   const {isLogged, Login} = useContext(AuthContext)
   console.log(isLogged)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   function handleSubmit({name, email}) {
     if(isLogged) {

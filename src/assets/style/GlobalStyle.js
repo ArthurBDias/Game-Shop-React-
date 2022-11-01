@@ -30,12 +30,12 @@ const GlobalStyle = createGlobalStyle`
     }
  
     body::-webkit-scrollbar-track {
-    background: darkgray;        /* color of the tracking area */
+    background: darkgray;        
     }
 
     body::-webkit-scrollbar-thumb {
-    background-color: #222;    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */
+    background-color: #222;    
+    border-radius: 20px;       
     }
 `
 

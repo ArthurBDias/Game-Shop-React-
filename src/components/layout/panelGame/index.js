@@ -11,19 +11,11 @@ import {FaChrome} from 'react-icons/fa'
 
 import { AuthContext } from '../../../contexts/AuthUserContext'
 
+import ResrveBackground from '../../../assets/image/reserve-background.png'
+
 export default function Index({gameId}) {
 
-  const {cart, AddCart} = useContext(AuthContext)
-
-
-    function ItemCart() {
-        console.log('foi')
-        AddCart({
-            title:'teste',
-            id: '511'
-          })
-          console.log(cart)
-    }
+  const {isLogged, AddCart} = useContext(AuthContext)
 
     const [gameData, setGameData] = useState(null)
 
@@ -36,10 +28,22 @@ export default function Index({gameId}) {
         loadData()
     }, [gameId])
 
+    function AddItemCart() {
+        if(isLogged){
+            AddCart({
+                title: gameData.title,
+                thumb: gameData.thumbnail,
+                id: gameData.id
+            })
+        }else{
+            alert('faça login')
+        }
+    }
+
   return (
-    <PanelGame onClick={ItemCart}>
+    <PanelGame>
         {gameData && (
-            <Background url={gameData.screenshots[0].image}>
+            <Background url={gameData.screenshots[0] ? gameData.screenshots[0].image : ResrveBackground}>
                 
                 <GameInfo>
 
@@ -62,7 +66,7 @@ export default function Index({gameId}) {
                     <div className='buttons'>
                         <Button text='Play Now' url={gameData.game_url}/>
 
-                        <Button text='Interest List' color={'#4A27E3'} type='internal'/>
+                        <span onClick={AddItemCart}><Button text='Interest List' color={'#4A27E3'} type='internal' /></span>
                     </div>
 
                    
