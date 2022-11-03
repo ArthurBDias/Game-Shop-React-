@@ -21,11 +21,8 @@ export const Exhibition = styled.div`
 
 export const GameBillboard = styled.section`
     position: relative;
-    max-height: 100vh;
 
     @media (max-width: 1060px) {
-        max-height: unset !important;
-        max-width: 90%;
         margin: auto;
         margin-bottom: 6vh;
     }
@@ -46,15 +43,18 @@ export const BackImage = styled.div`
 
 export const GameInformation = styled.div`
     display: flex;
+    align-items: center;
 
     @media (max-width: 1060px) {
+        align-items: unset;
+        min-width: 100%;
         flex-direction: column;
     }
 `
 
 export const GameInfoCard = styled.div`
     width: max-content;
-    max-width: 30%;
+    max-width: 35%;
     height: max-content;
     display: flex;
     flex-direction: column;
@@ -94,19 +94,25 @@ export const GameInfoCard = styled.div`
     div.buttons{
         margin-top: 35px;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         margin-bottom: 20px;
     }
 
+    div.buttons button a{
+        font-size: 1.3em;
+        padding: 10px 28px;
+    }
+
     div.buttons button:first-child{
-        margin-right: 15px;
+        margin-right: 10px;
     }
 
     @media (max-width: 1600px) {
         h2{
             font-size: 1.7em;
         }
+
 
     }
 
@@ -116,30 +122,31 @@ export const GameInfoCard = styled.div`
         }
 
         button  a{
-        font-size: 1.15em;
-        padding: 8px 22px;
-        border-radius: 18px;
+        font-size: 1.09em !important;
+        padding: 8px 20px !important;
         }
     }
 
     @media (max-width: 1060px) {
         max-width: 90%;
-        margin-left: 50%;
+        margin-left: 50vw;
         transform: translate(-50%, -50%);
-
-        button  a{
-        font-size: 1.6em;
-        padding: 10px 28px;
-        border-radius: 22px;
-        }
         
+    }
+
+    @media (max-width: 520px) {
+        button  a{
+        font-size: .9em !important;
+        padding: 7px 18px !important;
+        }
     }
    
 `
 
 export const GameDesc = styled.div`
-    margin-left: 7%;
-    max-width: 60%;
+    margin-left: 5%;
+    max-width: 58%;
+    margin-top: -250px;
 
     h2{
         font-size: 2.2em;
@@ -171,14 +178,17 @@ export const GameDesc = styled.div`
     }
 
     @media (max-width: 1060px) {
-        max-width: 100%;
-        margin-left: 0;
+        max-width: 90%;
+        margin: auto;
         text-align: center;
         margin-top: -20%;
     }
 `
 
 export const GameMinimumRequirements = styled.section`
+
+    margin-top: -150px;
+
     h2{
         margin-bottom: 1.3em;
         text-align: center;
@@ -195,6 +205,7 @@ export const GameMinimumRequirements = styled.section`
     div.colunm{
         text-align: left;
         text-align: left;
+        max-width: 50%;
     }
 
     div.colunm:first-child{
@@ -223,8 +234,13 @@ export const GameMinimumRequirements = styled.section`
 
     div.browser_requirements p:last-child{
         margin-bottom: 12vh;
+
     }
 
+    @media (max-width: 1060px) {
+        margin-top: 15px;
+
+    }
     
     @media (max-width: 900px) {
         max-width: 90%;
@@ -244,7 +260,7 @@ export const GameMinimumRequirements = styled.section`
 
     @media (max-width: 560px) {
         max-width: 100%;
-        transform: scale(.9);
+        transform: scale(.85);
     }
 
 `

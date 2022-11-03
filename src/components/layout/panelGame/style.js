@@ -23,8 +23,11 @@ export const Background = styled.div`
     border-radius: 22px;
 
     @media (max-width: 1400px) {
-        background: linear-gradient(90deg, rgba(20, 20, 20, .94) 42%, rgba(0, 0, 0, 0.60) 50%, rgba(0, 0, 0, 0.20)), 
+        background: linear-gradient(90deg, rgba(20, 20, 20, .94) 42%, rgba(0, 0, 0, 0.60) 60%, rgba(0, 0, 0, 0.30)), 
         url(${props => props.url});
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     @media (max-width: 800px) {
@@ -32,13 +35,16 @@ export const Background = styled.div`
         url(${props => props.url});
         justify-content: center;
         align-items: flex-end;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
 `
 
 export const GameInfo = styled.div`
     padding-left: 20px;
-    max-width: 30%;
+    max-width: 35%;
     text-align: center;
 
     h3{
@@ -72,32 +78,33 @@ export const GameInfo = styled.div`
         width: 100%;
         display: flex;
         justify-content: center;
+        width: 100%;
         align-items: center;
     }
 
-    button{
+    button:last-child{
         margin-left: 15px;
     }
 
     img{
-        transform: scale(1);
+        transform: scale(.9);
         border-radius: 20px;
         position: absolute;
         top: 30%;
         right: 15%;
         box-shadow: 0 0 16px white;
         transition: all .25s;
-        max-width: 40%;
+        max-width: 38%;
     }
 
     img:hover{
-        transform: scale(1.10);
+        transform: scale(1);
         box-shadow: 0 0 40px white;
         
     }
 
     @media (max-width: 1400px) {
-        max-width: 50%;
+        max-width: 55%;
         padding-left: 8px;
 
         button{
@@ -106,7 +113,7 @@ export const GameInfo = styled.div`
         }
 
         img{
-            right: 5%;
+            right: 2.5%;
         }
 
     }       
@@ -116,6 +123,7 @@ export const GameInfo = styled.div`
         min-width: 90%;
         max-width: 100%;
         margin-bottom: 25px;
+        padding-left: 0;
 
         button{
         margin-top: 20px;

@@ -20,7 +20,7 @@ export default function index({gameData}) {
   
         <GamesRow gamesData={gameData[1]}/>
 
-        <PanelGame gameId={gameData[0].data[6].id}/>
+        <PanelGame gameId={gameData[0].data[0].id}/>
   
         <GamesRow gamesData={gameData[2]}/>
   

@@ -10,7 +10,7 @@ import GamesRow from '../../layout/gamesRow'
 
 import { AuthContext } from '../../../contexts/AuthUserContext'
 
-import {FaAngleLeft} from 'react-icons/fa'
+import {FaAngleLeft, FaCartPlus, FaPlay} from 'react-icons/fa'
 
 import ResrveBackground from '../../../assets/image/reserve-background.png'
 
@@ -93,8 +93,8 @@ export default function Index() {
                         <p><b>Release Date:</b> {gameData.release_date}</p>
 
                         <div className='buttons'>
-                            <Button text='Play Now' url={gameData.game_url}/>
-                            <span onClick={AddItemCart}><Button text='Interest List' color={'#4A27E3'} type='internal' /></span>
+                            <Button text='Play Now' url={gameData.game_url} icon={<FaPlay/>}/>
+                            <span onClick={AddItemCart}><Button text='Add to interests' icon={<FaCartPlus/>} color={'#4A27E3'} type='internal' /></span>
                         </div>
 
                    </GameInfoCard>

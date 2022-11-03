@@ -23,4 +23,20 @@ export const Button = styled.button`
     a:hover{
         box-shadow: 0 0 60px ${props => props.color ? props.color : props.theme.secondary};
     }
+
+    @media (max-width: 1000px) {
+        a{
+            font-size: 1.28em;
+            padding: 10px 28px;
+
+        }
+    }
+
+    @media (max-width: 1000px) {
+    a{
+        font-size: 1.1em;
+        padding: 8px 24px;
+
+    }
+    }
 `
