@@ -47,16 +47,9 @@ export const requestGameData = {
             {
                 Title: 'Card Games',
                 data: await requestData(`/games?category=card&sort-by=revelace`)
-            },
-
-            {
-                Title: 'Popular Now',
-                data: await requestData(`/games?sort-by=popularity`)
-            }
-            
+            }    
         ]
     
- 
     }
 }
 
@@ -70,8 +63,8 @@ export async function getCategoryGames(category){
     return data
 }
 
-export async function getAlphabeticalGames(){
-    const data = await requestData(`/games?&sort-by=alphabetical`)
+export async function getGamesSorted(sort){
+    const data = await requestData(`/games?&sort-by=${sort}`)
     return data
 }
 

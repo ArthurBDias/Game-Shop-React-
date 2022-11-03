@@ -5,8 +5,8 @@ import ToggleThemeContext from '../../../contexts/ToggleThemeContext'
 import { AuthContext } from '../../../contexts/AuthUserContext'
 
 import {Header, IconContainer, NavigateContainer, ProfileContainer, MobileMenu, Cart} from './style'
-import { Link, Navigate } from 'react-router-dom'
-import ErrorMessage from '../errorMessage'
+import { Link} from 'react-router-dom'
+import ErrorMessage from '../alertMessage'
 
 import './styles.css'
 
@@ -23,7 +23,9 @@ export default function Index() {
 
   const [cartItems, setCartItems] = useState()
 
-  const [cartErrorVisible, setCartErrorVisible] = useState(false)
+  const [alertMessage, setAlertMessage] = useState({})
+
+  const [alertVisible, setAlertVisible] = useState(false)
 
   const [widthState, setWidthState] = useState(2.5)
 
@@ -43,10 +45,26 @@ export default function Index() {
 
     const VisibleCart = () =>{
       if(!isLogged){
-        setCartErrorVisible(true)
+        setAlertMessage({
+          title: 'Error',
+          message: 'User not logged in, Please create an account or login.',
+          actionBtn: <Link to='/login' onClick={() => setAlertVisible(false)}>OK</Link>
+        })
+        setAlertVisible(true)
       }
       else{
         document.querySelector('#cart').classList.toggle('active')
+      }
+    }
+
+    function handleLogout() {
+      if(isLogged){
+        setAlertMessage({
+          title: 'Warning',
+          message: 'Are you sure you want to log out of your account?.',
+          actionBtn: <button onClick={() => {Logout(); setAlertVisible(false)}}>OK</button>
+        })
+        setAlertVisible(true)
       }
     }
 
@@ -92,7 +110,7 @@ export default function Index() {
         {!isLogged ? (
           <Link to={'/login'} className='login_link'>Login</Link>
         ) : (
-          <CgProfile onClick={() => Logout()}/>
+          <CgProfile onClick={handleLogout}/>
         )}
 
         <Link to={'/search'}><FaSearch/></Link>
@@ -183,7 +201,7 @@ export default function Index() {
       )}
 
 
-    <ErrorMessage title='Error' message={`User not logged in, Please create an account or login.`} visible={cartErrorVisible} setVisible={setCartErrorVisible} ActionButton={<Link to='/login' onClick={() => setCartErrorVisible(false)}>OK</Link>}/>
+    <ErrorMessage title={alertMessage.title} message={alertMessage.message} visible={alertVisible} setVisible={setAlertVisible} ActionButton={alertMessage.actionBtn}/>
 
     </Header>
   )

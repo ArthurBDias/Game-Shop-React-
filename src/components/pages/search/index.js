@@ -4,7 +4,7 @@ import {FaSearch} from 'react-icons/fa'
 
 import GameList  from '../../layout/gameList/'
 
-import { getAlphabeticalGames } from '../../../api/request'
+import { getGamesSorted } from '../../../api/request'
 
 export default function Index() {
 
@@ -17,7 +17,7 @@ export default function Index() {
 
     useEffect(() => {
         async function loadData() {
-            const Data = await getAlphabeticalGames()
+            const Data = await getGamesSorted('alphabetical')
             setGameList(Data)
         }
 

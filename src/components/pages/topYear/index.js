@@ -2,7 +2,11 @@ import {useEffect, useState} from 'react'
 import { TopYearContainer } from './style'
 import GameLine from '../../layout/gameCardLine/'
 
-export default function Index({popularGames}) {
+import { getGamesSorted } from '../../../api/request'
+
+export default function Index() {
+
+    const [popularGames, setPopularGames] = useState()
 
     const [currentPages, setCurrentPages] = useState(1)
 
@@ -28,8 +32,15 @@ export default function Index({popularGames}) {
 
     useEffect(() => {}, [])
 
-    if(popularGames.data) {
-        var popularGamesFiltered = popularGames.data.filter((game, index) => {
+    const loadData = async () =>{
+        const Data = await getGamesSorted('popularity')
+        setPopularGames(Data)
+    }
+
+    loadData()
+
+    if(popularGames) {
+        var popularGamesFiltered = popularGames.filter((game, index) => {
             if (index < currentPages * 10){
                 return game
             }

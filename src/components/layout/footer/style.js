@@ -5,6 +5,11 @@ export const Footer = styled.footer`
     padding: 40px;
     margin-top: 10vh;
 
+    @media (max-width: 500px) {
+        padding: 25px;
+
+    }
+
     a{
         color: ${props => props.theme.fontColor};
         text-decoration: none;
@@ -25,6 +30,10 @@ export const FooterContent = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    @media (max-width: 840px) {
+        flex-direction: column;
+    }
 `
 
 export const LinksContainer = styled.ul`
@@ -41,6 +50,20 @@ export const LinksContainer = styled.ul`
     a:hover{
         color: ${props => props.theme.fontColor};
         text-decoration: underline;
+    }
+
+    @media (max-width: 1250px) {
+        width: 45%;
+    }
+
+    @media (max-width: 840px) {
+        margin-bottom: 40px;
+        width: 100%;
+
+    }
+
+    @media (max-width: 500px) {
+        justify-content: space-between;
     }
 `
 
@@ -73,6 +96,14 @@ export const LogoAndSocial = styled.div`
 
    svg:first-child{
    }
+
+   @media (max-width: 1050px) {
+        width: 45%;
+    }
+
+    @media (max-width: 840px) {
+        width: 100%;
+    }
 `
 
 export const Credits = styled.div`
