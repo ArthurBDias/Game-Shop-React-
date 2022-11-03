@@ -1,8 +1,12 @@
 import React, {useContext, useState, useEffect} from 'react'
+
+
 import ToggleThemeContext from '../../../contexts/ToggleThemeContext'
 import { AuthContext } from '../../../contexts/AuthUserContext'
+
 import {Header, IconContainer, NavigateContainer, ProfileContainer, MobileMenu, Cart} from './style'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
+import ErrorMessage from '../errorMessage'
 
 import './styles.css'
 
@@ -15,9 +19,11 @@ export default function Index() {
 
   const {toggleTheme} = useContext(ToggleThemeContext)
 
-  const {isLogged, cart, RemoveItemCart, ClearCart} = useContext(AuthContext)
+  const {isLogged, Logout, cart, RemoveItemCart, ClearCart} = useContext(AuthContext)
 
   const [cartItems, setCartItems] = useState()
+
+  const [cartErrorVisible, setCartErrorVisible] = useState(false)
 
   const [widthState, setWidthState] = useState(2.5)
 
@@ -34,6 +40,15 @@ export default function Index() {
     useEffect(() => {
       setCartItems(JSON.parse(cart))
     }, [cart])
+
+    const VisibleCart = () =>{
+      if(!isLogged){
+        setCartErrorVisible(true)
+      }
+      else{
+        document.querySelector('#cart').classList.toggle('active')
+      }
+    }
 
   return (
     <Header>
@@ -73,31 +88,44 @@ export default function Index() {
       </NavigateContainer>
 
       <ProfileContainer>
+
+        {!isLogged ? (
+          <Link to={'/login'} className='login_link'>Login</Link>
+        ) : (
+          <CgProfile onClick={() => Logout()}/>
+        )}
+
         <Link to={'/search'}><FaSearch/></Link>
 
-        <Link to={'/profile'}><CgProfile className='uper-size'/></Link>
-
         <span className='cart'>
-          <FaCartArrowDown onClick={() => {document.querySelector('.cart_container').classList.toggle('active')}}/>
+          <FaCartArrowDown onClick={VisibleCart}/>
 
-          <Cart className='cart_container'>
-            {isLogged ? (
-              <div>
-                {cartItems.map((item) => (
-                    <div className='cart_item'>
-                      <Link to={`/exhibition/${item.id}`}>
-                      <img src={item.thumb} alt='thumb'/>
-                      <h3>{item.title}</h3>
-                      </Link>
+          <Cart id='cart'>
+ 
+              {isLogged ? (
+                <>
+                {cartItems.length >= 1 ? (
+                <div className='cart_container'>
+                  {cartItems.map((item) => (
+                      <div className='cart_item'>
+                        <Link to={`/exhibition/${item.id}`}>
+                        <img src={item.thumb} alt='thumb'/>
+                        <h3>{item.title}</h3>
+                        </Link>
 
-                      <button onClick={() => RemoveItemCart(item.id)}>Remove</button>
-                    </div>
-                ))}
-                <button onClick={() => ClearCart()}>Clear Cart</button>
+                        <button onClick={() => RemoveItemCart(item.id)}>Remove</button>
+                      </div>
+                  ))}
+                  <button className='clear_cart' onClick={() => ClearCart()}>Clear Cart</button>
               </div>
-            ) : (
-              <p>Usuario não logado</p>
-            )}
+              ) : (
+                <p className='no_games_message'>There are no saved games</p>
+              )} 
+              </>
+              ) : (
+                <></>
+              )}    
+           
           </Cart>
 
         </span>
@@ -155,9 +183,7 @@ export default function Index() {
       )}
 
 
-
-
-      
+    <ErrorMessage title='Error' message={`User not logged in, Please create an account or login.`} visible={cartErrorVisible} setVisible={setCartErrorVisible} ActionButton={<Link to='/login' onClick={() => setCartErrorVisible(false)}>OK</Link>}/>
 
     </Header>
   )

@@ -123,6 +123,10 @@ export const NavigateContainer = styled.nav`
 `
 
 export const ProfileContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     svg{
         color: ${props => props.theme.fontColor};
         transition: all .35s;
@@ -133,6 +137,26 @@ export const ProfileContainer = styled.div`
         margin-left: 10px;
     }
 
+    a.login_link{
+        color: ${props => props.theme.secondary};
+        font-weight: bold;
+        background-color: transparent;
+        transition: all .35s;
+        cursor: pointer;
+        padding: 6px 10px;
+        border: 2px solid ${props => props.theme.secondary};
+        margin-left: 10px;
+        transition: all .4s;
+        font-size: .95em;
+        text-decoration: none;
+    }
+
+    a.login_link:hover{
+        background-color: ${props => props.theme.secondary};
+        color: ${props => props.theme.fontColor};
+        text-decoration: underline;
+        
+    }
 
     svg:hover{
         background-color: ${props => props.theme.secondary};
@@ -224,11 +248,11 @@ export const Cart = styled.div`
         animation: showSmooth .5s;
     }
 
-    max-width: 22vw;
+    max-width: 24vw;
     display: none;
     position: absolute;
-    top: 20px;
-    left: 0%;
+    top: 48px;
+    left: -70%;
     transform: translateX(-50%);
     max-height: calc(65vh - 50px);
     overflow-y: scroll;
@@ -236,27 +260,31 @@ export const Cart = styled.div`
     background-color: ${props => props.theme.primary};
     scrollbar-color: #333 lightgray;
 
-
     &::-webkit-scrollbar{
         width: 12px;
     }
  
     &::-webkit-scrollbar-track {
-    background: #333;        
+    background: #555;        
     }
 
     &::-webkit-scrollbar-thumb {
     background-color: lightgray;    
     }
 
-    div.cart_item{
+    div.cart_container{
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
+        align-items: center;
+    }
+
+
+    div.cart_item{
+        position: relative;
         margin-bottom: 20px;
         transition: all .3s;
         border-radius: 3px;
+        width: 100%;
     }
 
     div.cart_item:last-child{
@@ -268,7 +296,7 @@ export const Cart = styled.div`
     }
 
     div.cart_item a{
-        padding: 8px 8px 8px 20px;
+        padding: 8px 8px 34px 20px;
         display: flex;
         align-items: center;
         width: 100%;
@@ -297,5 +325,44 @@ export const Cart = styled.div`
         font-weight: bold;
         padding: 6px 12px;
         border-radius: 6px;
+        position: absolute;
+        bottom: 0;
+        right: 5px;
+        transition: all .2s;
+        box-shadow: 0 0 14px ${props => props.theme.secondary};
+        cursor: pointer;
+    }
+
+    div.cart_item button:hover{
+        box-shadow: 0 0 24px ${props => props.theme.secondary};
+    }
+
+    p.no_games_message{
+        margin: 40px 20px;
+        color: ${props => props.theme.secondary};
+        padding: 3px;
+        border: 1px solid ${props => props.theme.secondary};
+    }
+
+    .clear_cart{
+        border: none;
+        outline: none;
+        text-align: center;
+        padding: 10px 0;
+        min-width: 100%;
+        border-radius: 4px;
+        margin-bottom: 6px;
+        background-color: rgb(166, 20, 20);
+        font-weight: bold;
+        font-size: 1em;
+        color: ${props => props.theme.fontColor};
+        cursor: pointer;
+        transition: all .35s;
+        box-shadow: 0 0 4px ${props => props.theme.secondary};
+    }
+
+    .clear_cart:hover{
+        box-shadow: 0 0 14px ${props => props.theme.secondary};
+        text-decoration: underline;
     }
 `
