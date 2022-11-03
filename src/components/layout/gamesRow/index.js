@@ -10,6 +10,8 @@ import GameCard from '../gameCard'
 
 export default function Index({gamesData, gameId}) {
 
+    const [gameRowData, setGameRowData] = useState([])
+
     const gameRowGames = gamesData.data.filter((game, index) => {
         if(index <= 21 && game.id !== gameId) {
             return game
@@ -25,8 +27,6 @@ export default function Index({gamesData, gameId}) {
     }
     return arr;
 }
-
-    const gameRowData = shuffleArray(gameRowGames)
 
     const [itemsPerView, setItemsPerView] = useState(2)
 
@@ -53,6 +53,8 @@ export default function Index({gamesData, gameId}) {
     
     useEffect(() =>{
         setView()
+        setGameRowData(shuffleArray(gameRowGames))
+
     }, [])
 
     window.addEventListener('resize', setView)

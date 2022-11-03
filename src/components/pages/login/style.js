@@ -18,6 +18,26 @@ export const LoginForm = styled.section`
     @media (max-width: 768px) {
         flex-direction: column;
     }
+
+    span.password_container{
+        position: relative;
+    }
+
+    span.password_container svg{
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2.7em;
+        cursor: pointer;
+        padding: 12px;
+        border-radius: 50%;
+        transition: all .2s;
+    }
+
+    span.password_container svg:hover{
+        background-color: rgba(0, 0, 0, 0.6);
+    }
 `
 
 export const FormImage = styled.aside`

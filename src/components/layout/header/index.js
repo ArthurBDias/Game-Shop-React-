@@ -21,7 +21,7 @@ export default function Index() {
 
   const {isLogged, Logout, cart, RemoveItemCart, ClearCart} = useContext(AuthContext)
 
-  const [cartItems, setCartItems] = useState()
+  const [cartItems, setCartItems] = useState([])
 
   const [alertMessage, setAlertMessage] = useState({})
 
@@ -159,42 +159,80 @@ export default function Index() {
       <HiMenu onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}}/>
 
       <div className='menu_mobile'>
+          
           <NavigateContainer>
-              <ul>
-                <li onClick={() => {document.querySelector('.categories_menu').classList.toggle('active')}} className='categories'>
-                  <span >Categories</span>
+        <ul>
+          <li onClick={() => {document.querySelector('.categories_menu').classList.toggle('active')}} className='categories'>
+            <span >Categories</span>
 
-                    <ul className='categories_menu'>
+            <ul className='categories_menu'>
 
-                      <Link to={'/categories/shooter'}>Shooter</Link>
-                      <Link to={'/categories/MMORPG'}>MMORPG</Link>
-                      <Link to={'/categories/card'}>Card Games</Link>
-                      <Link to={'/categories/fantasy'}>Fantasy</Link>
-                      <Link to={'/categories/strategy'}>Strategy</Link>
-                      <Link to={'/categories/anime'}>Anime</Link>
-                      <Link to={'/categories/moba'}>MOBA</Link>
-                      <Link to={'/categories/racing'}>Racing</Link>
-                      <Link to={'/categories/sports'}>Sports</Link>
-                      <Link to={'/categories/fighting'}>Fighting</Link>
-                      <Link to={'/categories/battle-royale'}>Battle Royale</Link>
+              <Link to={'/categories/shooter'}>Shooter</Link>
+              <Link to={'/categories/MMORPG'}>MMORPG</Link>
+              <Link to={'/categories/card'}>Card Games</Link>
+              <Link to={'/categories/fantasy'}>Fantasy</Link>
+              <Link to={'/categories/strategy'}>Strategy</Link>
+              <Link to={'/categories/anime'}>Anime</Link>
+              <Link to={'/categories/moba'}>MOBA</Link>
+              <Link to={'/categories/racing'}>Racing</Link>
+              <Link to={'/categories/sports'}>Sports</Link>
+              <Link to={'/categories/fighting'}>Fighting</Link>
+              <Link to={'/categories/battle-royale'}>Battle Royale</Link>
 
-                      
-                    </ul>
+              
+            </ul>
 
-                </li>
-                <li><Link to={'/top'}>Top 2022</Link></li>
-                <li><Link to={'/contact'}>Contact us</Link></li>
-                <li onClick={() => {toggleTheme()}}>About us</li>
-              </ul>
-          </NavigateContainer>
+          </li>
+          <li><Link to={'/top'}>Top 2022</Link></li>
+          <li><Link to={'/contact'}>Contact us</Link></li>
+          <li onClick={() => {toggleTheme()}}>About us</li>
+        </ul>
+      </NavigateContainer>
 
-          <ProfileContainer>
-              <Link to={'/search'}><FaSearch/></Link>
+      <ProfileContainer>
 
-              <Link to={'/profile'}><CgProfile className='uper-size'/></Link>
+        {!isLogged ? (
+          <Link to={'/login'} className='login_link'>Login</Link>
+        ) : (
+          <CgProfile onClick={handleLogout}/>
+        )}
 
-              <span onClick={() => {document.querySelector('.cart_container').classList.toggle('active')}}><FaCartArrowDown/></span>
-          </ProfileContainer>
+        <Link to={'/search'}><FaSearch/></Link>
+
+        <span className='cart'>
+          <FaCartArrowDown onClick={VisibleCart}/>
+
+          <Cart id='cart'>
+ 
+              {isLogged ? (
+                <>
+                {cartItems.length >= 1 ? (
+                <div className='cart_container'>
+                  {cartItems.map((item) => (
+                      <div className='cart_item'>
+                        <Link to={`/exhibition/${item.id}`}>
+                        <img src={item.thumb} alt='thumb'/>
+                        <h3>{item.title}</h3>
+                        </Link>
+
+                        <button onClick={() => RemoveItemCart(item.id)}>Remove</button>
+                      </div>
+                  ))}
+                  <button className='clear_cart' onClick={() => ClearCart()}>Clear Cart</button>
+              </div>
+              ) : (
+                <p className='no_games_message'>There are no saved games</p>
+              )} 
+              </>
+              ) : (
+                <></>
+              )}    
+           
+          </Cart>
+
+        </span>
+
+      </ProfileContainer>
 
       </div>
       </MobileMenu>

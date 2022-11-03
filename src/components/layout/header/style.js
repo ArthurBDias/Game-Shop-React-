@@ -87,6 +87,15 @@ export const NavigateContainer = styled.nav`
         left: 0;
         padding: 4px 0;
         border-radius: 4px;
+
+        @media (max-width: 1125px) {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            z-index: 10;
+            background-color: ${props => props.theme.background};
+        
+        }
     }
 
     ul.categories_menu a{
@@ -182,7 +191,7 @@ export const MobileMenu = styled.div`
         position: absolute;
         right: -45vw;
         top: 38px;
-        min-width: 40vw;
+        width: 40vw;
         height: 100vh;
         background-color: ${props => props.theme.primary};
         transition: all .5s;
@@ -248,7 +257,7 @@ export const Cart = styled.div`
         animation: showSmooth .5s;
     }
 
-    max-width: 24vw;
+    width: 24vw;
     display: none;
     position: absolute;
     top: 48px;
@@ -259,6 +268,7 @@ export const Cart = styled.div`
     width: max-content;
     background-color: ${props => props.theme.primary};
     scrollbar-color: #333 lightgray;
+    font-size: 16px;
 
     &::-webkit-scrollbar{
         width: 12px;
@@ -312,7 +322,7 @@ export const Cart = styled.div`
     }
 
     div.cart_item h3{
-        font-size: 1em;
+        font-size: 18px;
         margin-left: 12px;
     }
 
@@ -321,7 +331,7 @@ export const Cart = styled.div`
         outline: none;
         background-color: ${props => props.theme.secondary};
         color: white;
-        font-size: 1em;
+        font-size: 16px;
         font-weight: bold;
         padding: 6px 12px;
         border-radius: 6px;
@@ -342,6 +352,8 @@ export const Cart = styled.div`
         color: ${props => props.theme.secondary};
         padding: 3px;
         border: 1px solid ${props => props.theme.secondary};
+        font-size: 16px;
+        text-align: center;
     }
 
     .clear_cart{
@@ -354,7 +366,7 @@ export const Cart = styled.div`
         margin-bottom: 6px;
         background-color: rgb(166, 20, 20);
         font-weight: bold;
-        font-size: 1em;
+        font-size: 16px;
         color: ${props => props.theme.fontColor};
         cursor: pointer;
         transition: all .35s;
@@ -364,5 +376,23 @@ export const Cart = styled.div`
     .clear_cart:hover{
         box-shadow: 0 0 14px ${props => props.theme.secondary};
         text-decoration: underline;
+    }
+
+    @media (max-width: 1125px) {
+        width: 35vw;
+        border: 1px solid ${props => props.theme.fontColor};
+        right: 0%;
+    }
+
+    @media (max-width: 768px) {
+        div.menu_mobile{
+        width: 55vw;
+    }
+    }
+
+    @media (max-width: 460px) {
+        div.menu_mobile{
+        width: 75vw;
+    }
     }
 `

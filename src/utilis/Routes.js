@@ -1,5 +1,5 @@
-import {Routes, Route, Navigate} from 'react-router-dom'
-import {useContext} from 'react'
+import {Routes, Route, Navigate, Link} from 'react-router-dom'
+import {useContext, useState} from 'react'
 
 import Header from '../components/layout/header'
 import Footer from '../components/layout/footer'
@@ -11,8 +11,9 @@ import CategoryExhibition from '../components/pages/categoryExhibition'
 import TopYear from '../components/pages/topYear'
 import Contact from '../components/pages/contactUs'
 import Search from '../components/pages/search'
-import Profile from '../components/pages/profile'
 import Login from '../components/pages/login'
+
+import AlertMessage from '../components/layout/alertMessage'
 
 import Loading from '../components/layout/loading'
 
@@ -22,13 +23,16 @@ export default function RoutesElements({gameData}) {
 
     const { isLogged, loading} = useContext(AuthContext)
 
+    const [errorVisible, setErrorVisible] = useState(false)
+
     const Private = ({children}) => {
         if(loading){
             return <Loading/>
         }
 
         if(!isLogged){
-            return <Navigate to='/login'/>
+            setErrorVisible(true)
+            return <Navigate to='/'/>
         }
 
         return children
@@ -49,10 +53,9 @@ export default function RoutesElements({gameData}) {
                         <Route path={'/exhibition/:id'} element={<GameExhibition/>}/>
                         <Route path={'/categories/:category'} element={<CategoryExhibition/>}/>
                         <Route path={'/top'} element={<TopYear popularGames={gameData[5]}/>}/>
-                        <Route path={'/contact'} element={<Contact/>}/>
+                        <Route path={'/contact'} element={<Private><Contact/></Private>}/>
                         <Route path={'/search'} element={<Search/>}/>
                         <Route path={'/login'} element={<Login/>}/>
-                        <Route path={'/profile'} element={<Private><Profile/></Private>}/>
 
                     </Routes>
                 </Main>
@@ -60,6 +63,9 @@ export default function RoutesElements({gameData}) {
                 <Footer>
         
                 </Footer>
+
+                <AlertMessage title={'Error'} message={'User not logged in, Please create an account or login.'} ActionButton={<Link to='login'>OK</Link>}  visible={errorVisible} setVisible={setErrorVisible}/>
+
             </>
         ) :
         
