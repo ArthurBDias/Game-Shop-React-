@@ -7,7 +7,14 @@ export const GameListContainer = styled.section`
 
     h2{
         font-size: 1.8em;
+        margin-top: 10px;
         margin-bottom: 40px;
+    }
+
+    @media (max-width: 640px) {
+        h2{
+        font-size: 1.5em;
+    }
     }
 
 `

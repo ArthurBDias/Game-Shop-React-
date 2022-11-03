@@ -3,6 +3,14 @@ import styled from "styled-components";
 export const CategoryExhibition = styled.div`
     padding-top: 8vh;
 
+    h1{
+        margin-bottom: 10px;
+    }
+    
+    h1, p{
+        max-width: 95%;
+    }
+
     h2{
         text-align: center;
         transform: translateY(8vh);

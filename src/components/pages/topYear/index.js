@@ -10,17 +10,21 @@ export default function Index() {
 
     const [currentPages, setCurrentPages] = useState(1)
 
+    const  [date, setDate] = useState(new Date)
+
     useEffect(() => {
         const Observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if(entry.isIntersecting){
-                    console.log('foi')
                     setTimeout(() => {
                     setCurrentPages((currentPageInState) => currentPageInState + 1)
                     }, 100)
                 }
             })
         })
+
+        const DateNow = new Date
+        var Year = DateNow.getFullYear()
 
         window.scrollTo(0, 0)
 
@@ -52,8 +56,8 @@ export default function Index() {
   return (
     <TopYearContainer>
 
-            <h1>Top Free To Play Games for PC and Browser in October 2022</h1>
-            <p>Below, you can find our ongoing Top Free To Play Games in October 2022. Our ranking is based on our users preferences during this calendar month and all results are updated daily. You can also use the menu to explore even more Top 10's for your favorite platforms.</p>
+            <h1>Top Free To Play Games for PC and Browser in {date.getFullYear()}</h1>
+            <p>Below, you can find our ongoing Top Free To Play Games in {date.getFullYear()}. Our ranking is based on our users preferences during this calendar month and all results are updated daily. You can also use the menu to explore even more Top 30's for your favorite platforms.</p>
             <div className='line'></div>
 
             {popularGamesFiltered && (

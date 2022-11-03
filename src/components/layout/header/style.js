@@ -179,7 +179,7 @@ export const ProfileContainer = styled.div`
 export const MobileMenu = styled.div`
 
     svg{
-        font-size: 1.6em;
+        font-size: 1.6em; 
         cursor: pointer;
     }
 
@@ -239,6 +239,10 @@ export const MobileMenu = styled.div`
         min-width: 60vw;
         padding: 25px;
     }
+
+    div.menu_mobile div{
+        margin-top: 20px;
+    }
     }
 
     @media (max-width: 460px) {
@@ -246,6 +250,10 @@ export const MobileMenu = styled.div`
         right: -85vw;
         min-width: 80vw;
         padding: 20px;
+    }
+
+    div.menu_mobile div{
+        margin-top: 12px;
     }
     }
 
@@ -367,7 +375,7 @@ export const Cart = styled.div`
         background-color: rgb(166, 20, 20);
         font-weight: bold;
         font-size: 16px;
-        color: ${props => props.theme.fontColor};
+        color: white;
         cursor: pointer;
         transition: all .35s;
         box-shadow: 0 0 4px ${props => props.theme.secondary};
@@ -380,19 +388,26 @@ export const Cart = styled.div`
 
     @media (max-width: 1125px) {
         width: 35vw;
-        border: 1px solid ${props => props.theme.fontColor};
+        border: 1px solid #555;
         right: 0%;
     }
 
     @media (max-width: 768px) {
-        div.menu_mobile{
+        margin-left: 8px;
         width: 55vw;
+
+        div.cart_item button{
+        font-size: 14px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    div.cart_contaner{
+        margin-top: 15px;
     }
     }
 
     @media (max-width: 460px) {
-        div.menu_mobile{
         width: 75vw;
-    }
     }
 `

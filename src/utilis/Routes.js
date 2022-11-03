@@ -64,7 +64,7 @@ export default function RoutesElements({gameData}) {
         
                 </Footer>
 
-                <AlertMessage title={'Error'} message={'User not logged in, Please create an account or login.'} ActionButton={<Link to='login'>OK</Link>}  visible={errorVisible} setVisible={setErrorVisible}/>
+                <AlertMessage title={'Error'} message={'User not logged in, Please create an account or login.'} ActionButton={<Link to='login' onClick={() => setErrorVisible(false)}>OK</Link>}  visible={errorVisible} setVisible={setErrorVisible}/>
 
             </>
         ) :

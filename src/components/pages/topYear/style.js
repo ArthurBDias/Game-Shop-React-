@@ -18,6 +18,10 @@ export const TopYearContainer = styled.div`
         margin-bottom: 40px;
     }
 
+    h1, p, descent-override.line{
+        margin-left: 8px;
+    }
+
     @media (max-width: 1600px) {
         width: 80%;
     }

@@ -76,7 +76,7 @@ export default function Index({gamesData, gameId}) {
 
 
         <Swiper
-        slidesPerGroup={2}
+         slidesPerGroup={Math.ceil(itemsPerView / 2)}
         slidesPerView={itemsPerView}
         speed={500}
         modules={[Navigation]}

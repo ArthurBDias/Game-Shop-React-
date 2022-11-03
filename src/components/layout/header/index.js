@@ -29,6 +29,8 @@ export default function Index() {
 
   const [widthState, setWidthState] = useState(2.5)
 
+  const  [date, setDate] = useState(new Date)
+
     const setView = () => {
         setWidthState(window.innerWidth)       
     }
@@ -99,7 +101,7 @@ export default function Index() {
             </ul>
 
           </li>
-          <li><Link to={'/top'}>Top 2022</Link></li>
+          <li><Link to={'/top'}>Top {date.getFullYear()}</Link></li>
           <li><Link to={'/contact'}>Contact us</Link></li>
           <li onClick={() => {toggleTheme()}}>About us</li>
         </ul>
@@ -124,8 +126,8 @@ export default function Index() {
                 <>
                 {cartItems.length >= 1 ? (
                 <div className='cart_container'>
-                  {cartItems.map((item) => (
-                      <div className='cart_item'>
+                  {cartItems.map((item, index) => (
+                      <div className='cart_item' key={index}>
                         <Link to={`/exhibition/${item.id}`}>
                         <img src={item.thumb} alt='thumb'/>
                         <h3>{item.title}</h3>
@@ -183,7 +185,7 @@ export default function Index() {
             </ul>
 
           </li>
-          <li><Link to={'/top'}>Top 2022</Link></li>
+          <li><Link to={'/top'}>Top {date.getFullYear()}</Link></li>
           <li><Link to={'/contact'}>Contact us</Link></li>
           <li onClick={() => {toggleTheme()}}>About us</li>
         </ul>
@@ -208,8 +210,8 @@ export default function Index() {
                 <>
                 {cartItems.length >= 1 ? (
                 <div className='cart_container'>
-                  {cartItems.map((item) => (
-                      <div className='cart_item'>
+                  {cartItems.map((item, index) => (
+                      <div className='cart_item' key={index}>
                         <Link to={`/exhibition/${item.id}`}>
                         <img src={item.thumb} alt='thumb'/>
                         <h3>{item.title}</h3>
