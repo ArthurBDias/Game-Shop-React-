@@ -32,12 +32,15 @@ export default function Index({gamesData, gameId}) {
 
     const setView = () => {
         if(window.innerWidth >= 1920){
-            setItemsPerView(4.5)
+            setItemsPerView(5)
         }
         else if(window.innerWidth >= 1600){
+            setItemsPerView(4.5)
+        }
+        else if(window.innerWidth >= 1400){
             setItemsPerView(4)
         }
-        else if(window.innerWidth >= 950){
+        else if(window.innerWidth >= 1050){
             setItemsPerView(3.5)
         }
 
@@ -45,8 +48,16 @@ export default function Index({gamesData, gameId}) {
             setItemsPerView(3)
         }
 
+        else if(window.innerWidth >= 600){
+            setItemsPerView(2.5)
+        }
+
         else if(window.innerWidth >= 460){
             setItemsPerView(2)
+        }
+
+        else if(window.innerWidth <= 460){
+            setItemsPerView(1.5)
         }
         
     }

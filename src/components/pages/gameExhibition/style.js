@@ -134,9 +134,9 @@ export const GameInfoCard = styled.div`
         
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 415px) {
         button  a{
-        font-size: .9em !important;
+        font-size: .95em !important;
         padding: 7px 18px !important;
         }
     }
