@@ -287,48 +287,65 @@ export const GameScreenshots = styled.section`
 
     margin-bottom: 20vh;
 
-    .swiper-button-prev, .swiper-button-next{
-        height: 0 !important;
-        width: 0 !important;
-        color: ${props => props.theme.fontColor} !important;
-        padding: 45px;
-        transition: all .3s;
-        border-radius: 50%;
-
-    }
-
-    .swiper-button-prev{
-        left: 5%;
-    }
-
-    .swiper-button-next{
-        right: 5%;
-    }
-
-    .swiper-button-prev:hover, .swiper-button-next:hover{
-        background-color: rgba(0, 0, 0, 0.85);
-    }
-
     h2{
         text-align: center;
         font-size: 1.9em;
         margin-bottom: 25px;
     }
 
-  
+    div.screenshot_card_container{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: max-content;
+        max-width: 90vw;
+        margin: auto;
+        background-color: ${props => props.theme.primary};
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    div.screenshot_card{
+        max-width: 22vw;
+        cursor: pointer;
+        transform: scale(.95);
+        transition: all .25s;
+        img{
+            max-width: 100%;
+            border-radius: 14px;
+
+        }
+
+        &:hover{
+            transform: scale(1);
+        }
+    }
 
     @media (max-width: 1060px) {
         margin-top: 40px; 
     }
+
+    @media (max-width: 768px) {
+        div.screenshot_card_container{
+            flex-wrap: wrap;
+        }
+
+        div.screenshot_card{
+        max-width: 42vw;
+    }
+    }
 `
 
 export const ScreenshotImage = styled.div`
-    width: 80%;
-    height: 80vh;
-    border-radius: 25px;
     background-image: url(${props => props.url});
-    background-position: center center;
+    border: 3px solid ${props => props.theme.primary};
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
+    width: 85vw;
+    height: 44vw;
     margin: auto;
+    margin-top: 30px;
+    border-radius: 15px;
 `

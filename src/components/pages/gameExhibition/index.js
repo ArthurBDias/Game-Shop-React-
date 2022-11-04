@@ -14,10 +14,6 @@ import {FaAngleLeft, FaCartPlus, FaPlay} from 'react-icons/fa'
 
 import ResrveBackground from '../../../assets/image/reserve-background.png'
 
-import {Swiper, SwiperSlide} from 'swiper/react'
-import { Navigation} from 'swiper'
-import 'swiper/css'
-import 'swiper/css/navigation'
 
 
 export default function Index() {
@@ -28,6 +24,8 @@ export default function Index() {
     const [categoryGames, setCategoryGames] = useState([])
 
     const {isLogged, AddCart} = useContext(AuthContext)
+
+    const [screenshotSelected, setScreenshotSelected] = useState()
 
     function AddItemCart() {
         if(isLogged){
@@ -169,23 +167,24 @@ export default function Index() {
 
             {gameData.screenshots.length >= 1 && (
                 <GameScreenshots>
+
                     <h2>Screenshots: </h2>
 
-                    <Swiper
-                     speed={500}
-                     modules={[Navigation]}
-                     navigation
-                    >
-                        {gameData.screenshots.map((screenshot, index) => (
-                          <SwiperSlide key={index}>
-                              <ScreenshotImage url={screenshot.image}>
-
-                            </ScreenshotImage>
-                          </SwiperSlide>
+                    <div className='screenshot_card_container'>
+                        {gameData.screenshots.map((screenshot, index) =>(
+                            <div key={index} className='screenshot_card' onClick={() => setScreenshotSelected(screenshot.image)}>
+                                <img src={screenshot.image} alt='screenshot'/>
+                            </div>
                         ))}
-                    </Swiper>
+                    </div>
+
+                    <ScreenshotImage url={screenshotSelected ? screenshotSelected : gameData.screenshots[0].image}>
+
+                    </ScreenshotImage>
+                         
                 </GameScreenshots>
             )}
+
 
             {categoryGames.data ? (
                 <div>

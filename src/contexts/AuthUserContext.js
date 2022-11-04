@@ -46,7 +46,8 @@ export const AuthProvider = ({children}) => {
     const Logout = () => {
         setUser(null)
         localStorage.removeItem('user')
-        navigate('/')
+        setCart('[]')
+        localStorage.setItem('cart', JSON.stringify([]))
     }
 
 
