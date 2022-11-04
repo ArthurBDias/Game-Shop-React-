@@ -306,7 +306,7 @@ export const GameScreenshots = styled.section`
     }
 
     div.screenshot_card{
-        max-width: 22vw;
+        max-width: 24vw;
         cursor: pointer;
         transform: scale(.95);
         transition: all .25s;
@@ -331,8 +331,8 @@ export const GameScreenshots = styled.section`
         }
 
         div.screenshot_card{
-        max-width: 42vw;
-    }
+            max-width: 40vw;
+        }
     }
 `
 
