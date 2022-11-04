@@ -136,8 +136,14 @@ export const GameInfoCard = styled.div`
 
     @media (max-width: 415px) {
         button  a{
-        font-size: .95em !important;
-        padding: 7px 18px !important;
+        font-size: 1em !important;
+        }
+    }
+
+    @media (max-width: 395px) {
+        button  a{
+        font-size: .93em !important;
+        padding: 6.5px 17px !important;
         }
     }
    
@@ -190,6 +196,8 @@ export const GameMinimumRequirements = styled.section`
     margin-top: -150px;
 
     h2{
+        max-width: 92%;
+        margin: auto;
         margin-bottom: 1.3em;
         text-align: center;
     }
@@ -255,12 +263,22 @@ export const GameMinimumRequirements = styled.section`
 
         div.colunm p{
             font-size: .9em;
-    }
+        }
     }
 
     @media (max-width: 560px) {
         max-width: 100%;
-        transform: scale(.85);
+        transform: scale(.96);
+    }
+
+    @media (max-width: 460px) {
+        div.colunm h3{
+            font-size: .95em;
+        }
+
+        div.colunm p{
+            font-size: .85em;
+        }
     }
 
 `

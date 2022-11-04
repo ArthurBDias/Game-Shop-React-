@@ -6,18 +6,21 @@ import { AuthContext } from '../../../contexts/AuthUserContext'
 
 import {Header, IconContainer, NavigateContainer, ProfileContainer, MobileMenu, Cart} from './style'
 import { Link} from 'react-router-dom'
+import Switch from "react-switch";
 import ErrorMessage from '../alertMessage'
 
 import './styles.css'
 
-import {FaSearch, FaCartArrowDown} from 'react-icons/fa'
+import {FaSearch, FaCartArrowDown, FaSun, FaMoon} from 'react-icons/fa'
 import {CgProfile} from 'react-icons/cg'
 import {HiMenu} from 'react-icons/hi'
 
 
 export default function Index() {
 
-  const {toggleTheme} = useContext(ToggleThemeContext)
+  const {toggleTheme, theme} = useContext(ToggleThemeContext)
+
+  const DarkTheme = () => theme.title==='dark' ? true : false
 
   const {isLogged, Logout, cart, RemoveItemCart, ClearCart} = useContext(AuthContext)
 
@@ -103,7 +106,7 @@ export default function Index() {
           </li>
           <li><Link to={'/top'}>Top {date.getFullYear()}</Link></li>
           <li><Link to={'/contact'}>Contact us</Link></li>
-          <li onClick={() => {toggleTheme()}}>About us</li>
+  
         </ul>
       </NavigateContainer>
 
@@ -150,6 +153,8 @@ export default function Index() {
 
         </span>
 
+        <span className='switch_button'><Switch checked={DarkTheme()} onChange={() => toggleTheme()} onColor={'#555'} offColor='#efefef' uncheckedIcon={<FaSun className='sun'/>} checkedIcon={<FaMoon className='moon'/>}/></span>
+
       </ProfileContainer>
 
         </>
@@ -187,7 +192,7 @@ export default function Index() {
           </li>
           <li><Link to={'/top'}>Top {date.getFullYear()}</Link></li>
           <li><Link to={'/contact'}>Contact us</Link></li>
-          <li onClick={() => {toggleTheme()}}>About us</li>
+          <li className='switch_button'><Switch checked={DarkTheme()} onChange={() => toggleTheme()} onColor={'#555'} offColor='#efefef' uncheckedIcon={<FaSun className='sun'/>} checkedIcon={<FaMoon className='moon'/>}/></li>
         </ul>
       </NavigateContainer>
 

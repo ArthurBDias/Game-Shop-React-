@@ -174,6 +174,24 @@ export const ProfileContainer = styled.div`
     span.cart{
         position: relative;
     }
+
+    span.switch_button{
+        margin-left: 10px;
+    }
+
+    .switch_button svg{
+        font-size: 2.2em;
+        margin-top: -2px;
+        margin-left: -3px;
+    }
+
+    .switch_button svg.moon{
+        color: #5696c7;
+    }
+
+    .switch_button svg.sun{
+        color: #e08138;
+    }
 `
 
 export const MobileMenu = styled.div`
@@ -228,9 +246,27 @@ export const MobileMenu = styled.div`
         max-width: 100%;
     }
 
-    div.menu_mobile div{
+    div.menu_mobile > div{
         margin-top: 30px;
-        font-size: 2em;
+        font-size: 1.1em;
+    }
+
+    div.menu_mobile svg{
+        font-size: 2.8em;
+    }
+
+    .switch_button svg{
+        font-size: 1em !important;
+        margin-top: 3px;
+        margin-left: 2px;
+    }
+
+    .switch_button svg.moon{
+        color: #5696c7;
+    }
+
+    .switch_button svg.sun{
+        color: #e08138;
     }
     
     @media (max-width: 768px) {
@@ -240,7 +276,7 @@ export const MobileMenu = styled.div`
         padding: 25px;
     }
 
-    div.menu_mobile div{
+    div.menu_mobile > div{
         margin-top: 20px;
     }
     }
@@ -252,7 +288,7 @@ export const MobileMenu = styled.div`
         padding: 20px;
     }
 
-    div.menu_mobile div{
+    div.menu_mobile > div{
         margin-top: 12px;
     }
     }

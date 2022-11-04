@@ -5,6 +5,9 @@ export const PreviewContainer = styled.section`
     height: 45vh;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0.65)),
     url(${props => props.url});
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
