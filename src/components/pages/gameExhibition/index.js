@@ -55,9 +55,14 @@ export default function Index() {
                 setCategoryGames({Title: `Games Like ${GameData.title}`, data: CategoryData})
 
             }
+
+            setScreenshotSelected(GameData.screenshots.length >= 1 ? GameData.screenshots[0].image: null)
         }
 
-        window.scrollTo(0, 0)
+        setTimeout(() => {
+            window.scrollTo(0, 0)
+        }, 250)
+
         loadData()
     }, [id])
 
@@ -178,7 +183,7 @@ export default function Index() {
                         ))}
                     </div>
 
-                    <ScreenshotImage url={screenshotSelected ? screenshotSelected : gameData.screenshots[0].image}>
+                    <ScreenshotImage url={screenshotSelected}>
 
                     </ScreenshotImage>
                          

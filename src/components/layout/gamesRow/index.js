@@ -64,9 +64,12 @@ export default function Index({gamesData, gameId}) {
     
     useEffect(() =>{
         setView()
-        setGameRowData(shuffleArray(gameRowGames))
 
     }, [])
+
+    useEffect(() => {
+        setGameRowData(shuffleArray(gameRowGames))
+    }, [gamesData, gameId])
 
     window.addEventListener('resize', setView)
 

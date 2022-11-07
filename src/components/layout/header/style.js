@@ -301,7 +301,7 @@ export const Cart = styled.div`
         animation: showSmooth .5s;
     }
 
-    width: 24vw;
+    max-width: 28vw;
     display: none;
     position: absolute;
     top: 48px;
@@ -422,15 +422,19 @@ export const Cart = styled.div`
         text-decoration: underline;
     }
 
+    @media (max-width: 1420px) {
+        max-width: 32vw;
+    }
+
     @media (max-width: 1125px) {
-        width: 35vw;
+        max-width: 35vw;
         border: 1px solid #555;
         right: 0%;
     }
 
     @media (max-width: 768px) {
         margin-left: 8px;
-        width: 55vw;
+        max-width: 55vw;
 
         div.cart_item button{
         font-size: 14px;
