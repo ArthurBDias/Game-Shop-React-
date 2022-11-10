@@ -69,7 +69,6 @@ export const PreviewContainer = styled.section`
     a:last-child{
         border: 3px solid ${props => props.theme.secondary};
         box-shadow: 0 0 22px ${props => props.theme.secondary};
-        margin-right: 25px;
 
     }
 
