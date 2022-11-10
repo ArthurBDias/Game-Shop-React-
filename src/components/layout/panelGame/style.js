@@ -11,6 +11,7 @@ export const PanelGame = styled.section`
 
 export const Background = styled.div`
     max-height: 90vh;
+    min-height: 50.6vw;
     height: 70vh;
     background: linear-gradient(90deg, rgba(20, 20, 20, .95) 32%, rgba(0, 0, 0, 0.60) 50%, rgba(0, 0, 0, 0.20)), 
     url(${props => props.url});
@@ -81,6 +82,7 @@ export const GameInfo = styled.div`
 
     div.buttons{
         margin-top: 3.5vh;
+        margin-top: 5vh;
         width: 100%;
         display: flex;
         justify-content: center;
