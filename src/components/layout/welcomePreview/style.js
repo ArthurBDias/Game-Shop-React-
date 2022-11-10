@@ -33,6 +33,13 @@ export const PreviewContainer = styled.section`
         max-width: 90%;
     }
 
+    div.flex_container{
+        display: flex;
+        width: 500px;
+        max-width: 80vw;
+        justify-content: space-between;
+    }
+
     a{
         color: white;
         text-decoration: none;
@@ -48,10 +55,11 @@ export const PreviewContainer = styled.section`
         background-color: #355BD4;
         box-shadow: 0 0 22px #355BD4;
         margin-right: 25px;
+        transform: scale(1);
     }
 
     a:first-child:hover{
-        padding: 12px 28px;
+        transform: scale(1.1);
         box-shadow: 0 0 44px #355BD4;
         opacity: 1;
 
@@ -106,6 +114,11 @@ export const PreviewContainer = styled.section`
 
     p{
         font-size: .8em;
+    }
+
+    div.flex_container{
+        max-width: 100vw;
+        justify-content: space-around;
     }
 
     a{

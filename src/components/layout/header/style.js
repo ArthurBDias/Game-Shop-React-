@@ -48,7 +48,7 @@ export const NavigateContainer = styled.nav`
         font-size: 1.15em;
     }
 
-    ul li a{
+    ul li a, ul li span{
         color: ${props => props.theme.fontColor};
         text-decoration: none;
     }
@@ -57,7 +57,7 @@ export const NavigateContainer = styled.nav`
         color: ${props => props.theme.secondary};
     }
 
-    ul li span{
+    ul li span, ul li a{
         transition: all .35s;
     }
 

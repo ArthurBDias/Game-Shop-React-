@@ -10,7 +10,7 @@ export default function index() {
 
       <p>Track what you've played and look for what to play next! Plus, see the best free ones of this year</p>
 
-      <div className='flex_ container'>
+      <div className='flex_container'>
 
         <Link to='/login'>GET STARTED</Link>
         <Link to='/top'>See The Best of Year</Link>
