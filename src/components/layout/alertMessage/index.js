@@ -9,7 +9,7 @@ export default function Index({title, message, visible, setVisible, ActionButton
     }
 
   return ReactDOM.createPortal(
-    <BackgroundMessage>
+    <BackgroundMessage id='background' onClick={(e) => e.target.id === 'background' ?  setVisible(false) : null}>
         <Message>
             <h3>{title}</h3>
             <p>{message}</p>

@@ -14,6 +14,7 @@ export const BackgroundMessage = styled.div`
 `
 
 export const Message = styled.div`
+    z-index: 1000001;
     padding: 20px 50px;
     border-radius: 10px;
     text-align: center;

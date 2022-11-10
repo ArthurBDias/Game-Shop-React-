@@ -32,7 +32,7 @@ export default function Index() {
 
   const [widthState, setWidthState] = useState(2.5)
 
-  const  [date, setDate] = useState(new Date)
+  const  [date, setDate] = useState()
 
     const setView = () => {
         setWidthState(window.innerWidth)       
@@ -40,6 +40,38 @@ export default function Index() {
     
     useEffect(() =>{
         setView()
+
+        setDate(new Date())
+
+        window.addEventListener('click', e => {
+          const categoriesList = document.querySelector(
+            'li.categories > ul'
+          );
+          const categoriesLabel = document.querySelector(
+            'li.categories'
+          );
+
+          const MenuIcon = document.querySelector('#menu_icon')
+          const Menu = document.querySelector('.menu_mobile')
+
+          const path = e.composedPath();
+          if (
+            categoriesList?.classList.contains('active') &&
+            !path.includes(categoriesList) &&
+            !path.includes(categoriesLabel)
+          ) {
+            categoriesList.classList.remove('active');
+          }
+
+            console.log(Menu, MenuIcon)
+          if (
+            Menu?.classList.contains('active') &&
+            !path.includes(Menu) &&
+            !path.includes(MenuIcon)
+          ) {
+            Menu.classList.remove('active');
+          }
+        });
     }, [])
 
     window.addEventListener('resize', setView)
@@ -104,7 +136,7 @@ export default function Index() {
             </ul>
 
           </li>
-          <li><Link to={'/top'}>Top {date.getFullYear()}</Link></li>
+          <li><Link to={'/top'}>Top {date?.getFullYear()}</Link></li>
           <li><Link to={'/contact'}>Contact us</Link></li>
   
         </ul>
@@ -163,35 +195,35 @@ export default function Index() {
 
       <MobileMenu>
 
-      <HiMenu onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}}/>
+      <HiMenu id='menu_icon' onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}}/>
 
       <div className='menu_mobile'>
           
           <NavigateContainer>
         <ul>
           <li onClick={() => {document.querySelector('.categories_menu').classList.toggle('active')}} className='categories'>
-            <span >Categories</span>
+            <span>Categories</span>
 
             <ul className='categories_menu'>
 
-              <Link to={'/categories/shooter'}>Shooter</Link>
-              <Link to={'/categories/MMORPG'}>MMORPG</Link>
-              <Link to={'/categories/card'}>Card Games</Link>
-              <Link to={'/categories/fantasy'}>Fantasy</Link>
-              <Link to={'/categories/strategy'}>Strategy</Link>
-              <Link to={'/categories/anime'}>Anime</Link>
-              <Link to={'/categories/moba'}>MOBA</Link>
-              <Link to={'/categories/racing'}>Racing</Link>
-              <Link to={'/categories/sports'}>Sports</Link>
-              <Link to={'/categories/fighting'}>Fighting</Link>
-              <Link to={'/categories/battle-royale'}>Battle Royale</Link>
+              <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/categories/shooter'}>Shooter</Link>
+              <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/categories/MMORPG'}>MMORPG</Link>
+              <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/categories/card'}>Card Games</Link>
+              <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/categories/fantasy'}>Fantasy</Link>
+              <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/categories/strategy'}>Strategy</Link>
+              <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/categories/anime'}>Anime</Link>
+              <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/categories/moba'}>MOBA</Link>
+              <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/categories/racing'}>Racing</Link>
+              <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/categories/sports'}>Sports</Link>
+              <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/categories/fighting'}>Fighting</Link>
+              <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/categories/battle-royale'}>Battle Royale</Link>
 
               
             </ul>
 
           </li>
-          <li><Link to={'/top'}>Top {date.getFullYear()}</Link></li>
-          <li><Link to={'/contact'}>Contact us</Link></li>
+          <li onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}}><Link to={'/top'}>Top {date?.getFullYear()}</Link></li>
+          <li onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}}><Link to={'/contact'}>Contact us</Link></li>
           <li className='switch_button'><Switch checked={DarkTheme()} onChange={() => toggleTheme()} onColor={'#555'} offColor='#efefef' uncheckedIcon={<FaSun className='sun'/>} checkedIcon={<FaMoon className='moon'/>}/></li>
         </ul>
       </NavigateContainer>
@@ -199,12 +231,12 @@ export default function Index() {
       <ProfileContainer>
 
         {!isLogged ? (
-          <Link to={'/login'} className='login_link'>Login</Link>
+          <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/login'} className='login_link'>Login</Link>
         ) : (
           <CgProfile onClick={handleLogout}/>
         )}
 
-        <Link to={'/search'}><FaSearch/></Link>
+        <Link onClick={() => {document.querySelector('.menu_mobile').classList.toggle('active')}} to={'/search'}><FaSearch/></Link>
 
         <span className='cart'>
           <FaCartArrowDown onClick={VisibleCart}/>

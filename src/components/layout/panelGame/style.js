@@ -10,6 +10,7 @@ export const PanelGame = styled.section`
 `
 
 export const Background = styled.div`
+    max-height: 90vh;
     height: 70vh;
     background: linear-gradient(90deg, rgba(20, 20, 20, .95) 32%, rgba(0, 0, 0, 0.60) 50%, rgba(0, 0, 0, 0.20)), 
     url(${props => props.url});
@@ -21,6 +22,10 @@ export const Background = styled.div`
     justify-content: flex-start;
     align-items: center;
     border-radius: 22px;
+
+    @media (max-height: 788px)and (max-width: 1240px) and (orientation: landscape)  {
+        min-height: 50.6vw;
+    }
 
     @media (max-width: 1400px) {
         background: linear-gradient(90deg, rgba(20, 20, 20, .94) 42%, rgba(0, 0, 0, 0.60) 60%, rgba(0, 0, 0, 0.30)), 
@@ -45,16 +50,17 @@ export const Background = styled.div`
 export const GameInfo = styled.div`
     padding-left: 20px;
     max-width: 35%;
+    max-height: 100%;
     text-align: center;
 
     h3{
         font-size: 1.75em;
-        margin-bottom: 25px;
+        margin-bottom: 3.5vh;
         text-decoration: underline;
     }
 
     p{
-        margin-top: 15px;
+        margin-top: 2vh;
         font-size: 1.1em;
     }
 
@@ -74,7 +80,7 @@ export const GameInfo = styled.div`
     }
 
     div.buttons{
-        margin-top: 35px;
+        margin-top: 3.5vh;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -108,7 +114,7 @@ export const GameInfo = styled.div`
         padding-left: 8px;
 
         button{
-        margin-top: 20px;
+        margin-top: 2.8vh;
         margin-left: 10px;
         }
 
@@ -124,11 +130,6 @@ export const GameInfo = styled.div`
         max-width: 100%;
         margin-bottom: 25px;
         padding-left: 0;
-
-        button{
-        margin-top: 20px;
-        margin-left: 10px;
-        }
 
         p.desc{
             display: none;
