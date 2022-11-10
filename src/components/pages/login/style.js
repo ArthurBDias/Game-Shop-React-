@@ -57,6 +57,7 @@ export const FormImage = styled.aside`
 
     @media (max-width: 768px) {
         min-width: 100%;
+    border-radius: 20px 20px 0 0;
         padding: 80px 0;
         background-position: center bottom;
         
